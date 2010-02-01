@@ -9,6 +9,7 @@ class UsersControllerTest < ActionController::TestCase
   context "checking the dashboard" do
     setup { get :index }
     should_render_template :index
+    should_assign_to(:albums) { @user.albums }
   end
   
   context "checking my account info" do

@@ -9,3 +9,8 @@ Factory.define :user do |f|
   f.password              'testing'
   f.password_confirmation { |o| o.password }
 end
+
+Factory.define :album do |f|
+  f.name                  { Factory.next(:name) }
+  f.association           :owner, :factory => :user
+end

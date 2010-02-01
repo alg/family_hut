@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100201033537) do
+ActiveRecord::Schema.define(:version => 20100201072128) do
+
+  create_table "albums", :force => true do |t|
+    t.string   "name",       :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "albums", ["user_id"], :name => "index_albums_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "login",                              :null => false
