@@ -1,0 +1,9 @@
+%h1 New Album
+
+- semantic_form_for @album do |f|
+  = f.input :name
+  - f.buttons do
+    = f.commit_button
+
+.commands
+  = link_to "Back to Dashboard", dashboard_url

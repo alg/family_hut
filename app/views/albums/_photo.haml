@@ -1,0 +1,8 @@
+.photo
+  .image= image_tag photo.image.url(:brief)
+  .title= photo.title || "Untitled"
+  .desc= photo.desc
+  - if owns?(photo)
+    .item_commands
+      = link_to "Edit",   edit_album_photo_path(photo.album, photo)
+      = link_to "Delete", album_photo_path(photo.album, photo), :method => :delete, :confirm => "Are you sure to delete this photo?"

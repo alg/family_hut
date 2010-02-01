@@ -8,5 +8,5 @@ class Album < ActiveRecord::Base
   def thumbnail_url
     photos.count == 0 ? nil : photos.first.image.url(:thumb)
   end
-  
+
 end

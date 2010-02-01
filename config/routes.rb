@@ -2,14 +2,15 @@ ActionController::Routing::Routes.draw do |map|
 
   SprocketsApplication.routes(map)
 
-  map.resource        :user_session
-  map.resource        :account, :controller => "users"
-  map.resources       :users
-  map.resources       :albums
+  map.resource          :user_session
+  map.resource          :account, :controller => "users"
+  map.resources         :users
+  map.resources         :albums, :has_many => :photos
 
-  map.login '/login', :controller => "user_session", :action => "new"
-  map.dashboard '/',  :controller => "users"
-  map.root            :controller => "users"
+  map.login '/login',   :controller => "user_sessions", :action => "new"
+  map.logout '/logout', :controller => "user_sessions", :action => "destroy"
+  map.dashboard '/',    :controller => "users"
+  map.root              :controller => "users"
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -8,4 +8,16 @@ module ApplicationHelper
     (album && album.thumbnail_url) || EMPTY_ALBUM_IMAGE_URL
   end
 
+  def owns?(obj, user = @current_user)
+    return false if obj.nil? || user.nil?
+    
+    case
+    when obj.is_a?(Album)
+      obj.owner
+    when obj.is_a?(Photo)
+      obj.album.owner
+    else
+      nil
+    end == @current_user
+  end
 end

@@ -1,0 +1,13 @@
+%h1= @album.name || "Untitled Album"
+
+- if @album.photos.empty?
+  .no-items Album is empty
+- else
+  = render :partial => "photo", :collection => @album.photos
+
+.commands
+  = link_to "All Albums", albums_url
+  - if owns?(@album)
+    = link_to "Upload photo", new_album_photo_path(@album)
+    = link_to "Edit",         edit_album_path(@album)
+    = link_to "Delete",       @album, :method => :delete, :confirm => "Are you sure to delete this album?"

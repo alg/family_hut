@@ -36,12 +36,13 @@ class AlbumsControllerTest < ActionController::TestCase
     context "showing new album form" do
       setup { get :new }
       should_render_template :new
+      should_assign_to(:album)
     end
     
     context "creating" do
       setup { post :create, :album => { :name => "test" }}
       should_redirect_to("album") { Album.first }
-      should_set_the_flash_to "Album was created"
+      should_set_the_flash_to "Album was successfully created."
       should "add db record" do
         assert_not_nil Album.find_by_name("test")
       end
@@ -50,6 +51,19 @@ class AlbumsControllerTest < ActionController::TestCase
     context "failing to create" do
       setup { post :create, :album => {} }
       should_render_template :new
+    end
+  end
+  
+  context "showing" do
+    setup { @user = log_in }
+    
+    context "showing existing album" do
+      setup do
+        @album = Factory(:album)
+        get :show, :id => @album.id
+      end
+      should_render_template :show
+      should_assign_to(:album) { @album }
     end
   end
 end

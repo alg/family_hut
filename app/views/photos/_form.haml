@@ -1,0 +1,7 @@
+= form.input :title
+= form.input :desc
+- if !form.object.new_record?
+  .image= image_tag form.object.image.url(:thumb)
+= form.input :image, :label => (form.object.new_record? ? nil : "Change image")
+- form.buttons do
+  = form.commit_button

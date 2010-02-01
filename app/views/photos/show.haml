@@ -1,0 +1,9 @@
+%h1= (@photo.title || "Untitled")
+
+= image_tag @photo.image.url
+
+- if @photo.desc.any?
+  = @photo.desc
+
+.commands
+  = link_to "Back to #{@photo.album.name}", parent_path

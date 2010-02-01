@@ -1,2 +1,5 @@
-%ul#menu
-  %li= link_to 'Dashboard', dashboard_path
+- if logged_in?
+  %ul#menu
+    %li= link_to 'Dashboard', dashboard_path
+    %li= link_to 'Albums',    albums_path
+    %li= link_to 'Log out',   logout_path
