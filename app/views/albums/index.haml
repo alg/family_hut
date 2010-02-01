@@ -1,0 +1,7 @@
+%h1 Albums
+
+- if @owners_to_albums.empty?
+  .no-item There are no albums yet
+- else
+  - @owners_to_albums.sort_by { |owner, albums| owner.name }.each do |owner, albums|
+    = render :partial => "owner_albums", :locals => { :owner => owner, :albums => albums }

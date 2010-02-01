@@ -1,5 +1,8 @@
 %table.properties
   %tr
+    %td.label Avatar:
+    %td= image_tag @user.avatar.url(:normal)
+  %tr
     %td.label Login:
     %td= @user.login
 

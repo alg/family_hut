@@ -1,1 +1,11 @@
 %h1 Dashboard
+
+%h2 Your Albums
+
+- if @albums.empty?
+  .no-items You don't have any albums yet
+- else
+  = render :partial => "albums/_album", :collection => @albums
+
+.section_commands
+  = link_to "[+] New Album", "#"

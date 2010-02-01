@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource        :user_session
   map.resource        :account, :controller => "users"
   map.resources       :users
+  map.resources       :albums
 
   map.login '/login', :controller => "user_session", :action => "new"
   map.dashboard '/',  :controller => "users"

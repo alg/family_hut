@@ -4,6 +4,6 @@ class UserTest < ActiveSupport::TestCase
 
   should_validate_presence_of :name, :login, :email
   
-  should_have_many :albums
+  should_have_many :albums, :dependent => :destroy
 
 end
