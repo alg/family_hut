@@ -1,0 +1,19 @@
+%table.properties
+  %tr
+    %td.label Login:
+    %td= @user.login
+
+  %tr
+    %td.label Name:
+    %td= @user.name
+  
+  %tr
+    %td.label E-mail:
+    %td= @user.email
+    
+  %tr
+    %td.label Last login at:
+    %td= @user.last_login_at
+
+.commands 
+  = link_to 'Edit', edit_account_path

@@ -1,0 +1,11 @@
+.DS_Store
+.rake_tasks~
+config/database.yml
+doc/api
+log/*.log
+tmp
+tmp/**/*
+db/*.sqlite3
+bin/*
+vendor/gems/*
+!vendor/gems/cache/

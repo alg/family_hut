@@ -1,0 +1,7 @@
+%h1 Edit My Account
+ 
+- semantic_form_for @user, :url => account_path do |f|
+  = render :partial => "form", :object => f
+
+.commands
+  = link_to "My Profile", account_path

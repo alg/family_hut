@@ -1,0 +1,7 @@
+= form.error_messages
+= form.input :name
+= form.input :login
+= form.input :password, :as => :password, :label => (form.object.new_record? ? "Password" : "Change password")
+= form.input :password_confirmation, :as => :password
+- form.buttons do
+  = form.commit_button
