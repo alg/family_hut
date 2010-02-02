@@ -18,6 +18,6 @@ module ApplicationHelper
       obj.album.owner
     else
       nil
-    end == @current_user
+    end == user
   end
 end

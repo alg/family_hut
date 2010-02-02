@@ -12,7 +12,7 @@ class PhotosControllerTest < ActionController::TestCase
     
     context "successful" do
       setup { post :create_comment, :album_id => @album.id, :id => @photo.id, :comment => { :comment => "Hello" } }
-      should_redirect_to("album_photo") { album_photo_url(@album, @photo) }
+      should_redirect_to("album_photo") { album_photo_url(@album, @photo, :anchor => "comments") }
       should "add comment to db" do
         c = @photo.comments.first
         assert_equal "Hello", c.comment

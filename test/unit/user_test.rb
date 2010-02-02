@@ -6,5 +6,6 @@ class UserTest < ActiveSupport::TestCase
   
   should_have_many :albums, :dependent => :destroy
   should_have_many :comments, :dependent => :destroy
+  should_have_many :logs, :dependent => :destroy
 
 end
