@@ -7,9 +7,15 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   context "checking the dashboard" do
+    setup { get :dashboard }
+    should_render_template :dashboard
+    should_assign_to(:albums) { @user.albums }
+  end
+  
+  context "checking people's list" do
     setup { get :index }
     should_render_template :index
-    should_assign_to(:albums) { @user.albums }
+    should_assign_to(:users) { User.all }
   end
   
   context "checking my account info" do

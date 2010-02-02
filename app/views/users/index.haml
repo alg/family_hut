@@ -1,12 +1,7 @@
-%h1 Dashboard
+%h1 People
 
-%h2 My Albums
+.commands
+  = link_to "Invite", "#"
 
-.section_commands
-  = link_to "New Album", new_album_path
-
-- if @albums.empty?
-  .no-items You don't have any albums yet
-- else
-  = render :partial => "albums/album", :collection => @albums
+= render :partial => "user", :collection => @users
 

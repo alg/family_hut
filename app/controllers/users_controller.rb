@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [ :new, :create ]
-  before_filter :require_user,    :only => [ :index, :show, :edit, :update, :destroy ]
+  before_filter :require_user,    :only => [ :dashboard, :index, :show, :edit, :update, :destroy ]
+  
+  def dashboard
+    @albums = current_user.albums
+  end
   
   def index
-    @albums = @current_user.albums
+    @users = User.all(:order => "name asc")
   end
   
   def new
@@ -21,15 +25,15 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = @current_user
+    @user = current_user
   end
  
   def edit
-    @user = @current_user
+    @user = current_user
   end
   
   def update
-    @user = @current_user # makes our views "cleaner" and more consistent
+    @user = current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
       redirect_to account_url
@@ -39,7 +43,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @current_user.destroy
+    current_user.destroy
     flash[:notice] = "Your account has been cancelled"
     redirect_to login_url
   end
