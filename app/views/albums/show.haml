@@ -1,15 +1,16 @@
-%h1= @album.name || "Untitled Album"
+%h1= @album.name
 
 .commands
   - if owns?(@album)
-    = link_to "Add photo",      new_album_photo_path(@album)
-    = link_to "Add 10 photos",  new_ten_album_photos_path(@album)
-    = link_to "Edit album",     edit_album_path(@album)
-    = link_to "Delete album",   @album, :method => :delete, :confirm => "Are you sure to delete this album?"
+    = link_to t(".add_photo"),      new_album_photo_path(@album)
+    = link_to t(".add_10_photos"),  new_ten_album_photos_path(@album)
+    = link_to t(".edit"),           edit_album_path(@album)
+    = link_to t(".delete"),         @album, :method => :delete, :confirm => t(".delete_confirm")
 
 - if @album.photos.empty?
   .no-items
-    There are no photos in this album yet.
-    = link_to "Add photo",     new_album_photo_path(@album)
+    = t('.no_photos')
+    
+    = link_to t(".add_photo"),      new_album_photo_path(@album)
 - else
   = render :partial => "photo", :collection => @album.photos.all(:order => "created_at desc")

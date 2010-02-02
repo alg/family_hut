@@ -2,17 +2,23 @@
 
 - if current_user == @user
   .commands 
-    = link_to 'Edit', edit_account_path
+    = link_to t(".edit"), edit_account_path
     
 .user
   .avatar= image_tag @user.avatar.url(:normal)
   .details
-    .login== Login: #{@user.login}
+    .login== #{t("formtastic.labels.user.login")}: #{@user.login}
     - if @user.location
-      .location== Location: #{@user.location}
-    .email== Email: #{@user.email}
-    .last_login== Last login: #{(@user.last_login_at && time_ago_in_words(@user.last_login_at) + " ago") || "Never"}
+      .location== #{t("formtastic.labels.user.location")}: #{@user.location}
+    .email== #{t("formtastic.labels.user.email")}: #{@user.email}
+    .last_login== #{t("users.last_login")}: #{(@user.last_login_at && time_ago_in_words(@user.last_login_at) + " ago") || "Never"}
 
-%h2 Albums
+#news
+  %h2= t(".activity")
 
-= render :partial => "albums/album", :collection => @user.albums
+  = render :partial => "shared/event", :collection => @events
+
+#albums
+  %h2= t(".albums")
+
+  = render :partial => "albums/album", :collection => @user.albums

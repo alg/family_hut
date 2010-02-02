@@ -1,8 +1,8 @@
-%h1 Edit Album
+%h1= t(".header")
 
 - semantic_form_for @album do |f|
   = f.input :name
   = f.buttons
   
 .commands
-  = link_to "Don't edit", :back
+  = link_to t("back"), :back

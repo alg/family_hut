@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   
   def show
     @user = params[:id].nil? ? current_user : User.find(params[:id])
+    @events = @user.logs.all(:limit => 10, :order => "created_at desc")
   end
  
   def edit

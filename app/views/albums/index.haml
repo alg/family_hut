@@ -1,10 +1,10 @@
-%h1 All Albums
+%h1= t(".header")
 
 .commands
-  = link_to "New Album", new_album_path
+  = link_to t(".new"), new_album_path
   
 - if @owners_to_albums.empty?
-  .no-item There are no albums yet
+  .no-item= t("no_albums")
 - else
   - @owners_to_albums.sort_by { |owner, albums| owner.name }.each do |owner, albums|
     = render :partial => "owner_albums", :locals => { :owner => owner, :albums => albums }

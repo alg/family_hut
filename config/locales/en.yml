@@ -1,5 +1,93 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  family_hut:           Family Hut
+  back:                 Back
+
+  layouts:
+    header:
+      dashboard:        Dashboard
+      albums:           Albums
+      people:           People
+      my_account:       My Account
+      log_out:          Log out
+  
+  albums:
+    index:
+      header:           Åll Albums
+      new:              New Album
+    show:
+      no_photos:        There are no photos in this album.
+      add_photo:        Add Photo
+      add_10_photos:    Add 10 Photo
+      edit:             Edit Album
+      delete:           Delete Album
+      delete_confirm:   "Are you sure to delete this album?"
+    new:
+      header:           New Album
+    edit:
+      header:           Edit Album
+  
+  photos:
+    show:
+      administration:   Administration
+      edit:             Edit Photo
+      delete:           Delete Photo
+      delete_confirm:   "Are you sure to delete this photo?"
+      comments:         Comments
+      no_comments:      There are no comments.
+      add_comment:      Add Comment
+    new_ten:
+      header:           Upload 10 Photos
+      title:            Titles
+      file:             Files
+      upload:           Upload
+    new:
+      header:           Upload Photo
+    edit:
+      header:           Edit Photo
+      
+  users:
+    lives_in:           Lives in
+    last_login:         Last login
+    dashboard:
+      header:           Dashboard
+      news:             News
+      my_albums:        My Albums
+      no_albums:        You don't have albums yet
+      new_album:        New Album
+    index:
+      header:           People
+      invite:           Invite
+    show:
+      edit:             Edit
+      activity:         Activity
+      albums:           Albums
+    new:
+      header:           Invite a User
+      message:          If you know someone you would like to invite to Familty Hut, fill in this form for them.
+    edit:
+      header:           Edit Account
+  
+  formtastic:
+    labels:
+      album:
+        name:           Name
+      photo:
+        title:          Title
+        desc:           Description
+        image:          Image
+      comment:
+        comment:        Your comment
+      user:
+        avatar:         Image (64x64)
+        name:           Name
+        email:          E-mail
+        location:       City, Country
+        time_zone:      Time zone
+        login:          Login
+        locale:         Langugae
+        password:       New password
+        password_confirmation: Password confirmation
+
+    actions:
+      create:           Create
+      update:           Update

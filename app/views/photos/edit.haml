@@ -1,4 +1,4 @@
-%h1 Edit Photo
+%h1= t(".header")
 
 - semantic_form_for @photo, :url => resource_url, :html => { :multipart => true } do |f|
   = render :partial => "form", :object => f

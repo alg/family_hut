@@ -1,7 +1,7 @@
-%h1 People
+%h1= t(".header")
 
 .commands
-  = link_to "Invite", new_user_path
+  = link_to t(".invite"), new_user_path
 
 = render :partial => "user", :collection => @users
 

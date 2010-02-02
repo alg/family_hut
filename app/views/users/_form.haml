@@ -1,10 +1,12 @@
-- unless form.object.new_record?
-  = form.input :avatar
+= form.input :login
 = form.input :name
 = form.input :email
-= form.input :location
-= form.input :login
-= form.input :password, :as => :password, :label => (form.object.new_record? ? "Password" : "Change password")
-= form.input :password_confirmation, :as => :password
+- unless form.object.new_record?
+  = form.input :avatar, :required => false
+= form.input :location, :required => false
+= form.input :time_zone, :required => false
+= form.input :locale, :collection => { "Русский" => 'ru', "English" => 'en' }, :include_blank => false, :required => false
+= form.input :password, :as => :password, :required => false
+= form.input :password_confirmation, :as => :password, :required => false
 - form.buttons do
   = form.commit_button

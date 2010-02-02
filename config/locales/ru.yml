@@ -1,0 +1,118 @@
+ru:
+  family_hut:           Family Hut
+  back:                 Назад
+
+  datetime:
+    ago:                назад
+    distance_in_words:
+      less_than_x_seconds:  "меньше {{count}} секунд"
+      less_than_x_minutes:  "меньше {{count}} минут"
+      half_a_minute:        полминуты
+      x_minutes:            "{{count}} минут"
+      x_days:               "{{count}} дней"
+      x_months:             "{{count}} месяцев"
+      about_x_months:       "около {{count}} месяцев"
+      about_x_hours:        "около {{count}} часов"
+      about_x_years:        "около {{count}} лет"
+      over_x_years:         "более {{count}} лет"
+      almost_x_years:       "почти {{count}} лет"
+
+  layouts:
+    header:
+      dashboard:        Главная
+      albums:           Альбомы
+      people:           Люди
+      my_account:       Моя запись
+      log_out:          Выйти
+  
+  albums:
+    index:
+      header:           Все альбомы
+      new:              Новый альбом
+    show:
+      no_photos:        В этом альбоме еще нет фотографий
+      add_photo:        Добавить фото
+      add_10_photos:    Добавить 10 фото
+      edit:             Редактировать альбом
+      delete:           Удалить альбом
+      delete_confirm:   "Уверены, что хотите удалить этот альбом?"
+    new:
+      header:           Новый альбом
+    edit:
+      header:           Редактировать альбом
+  
+  photos:
+    show:
+      administration:   Администрирование
+      edit:             Редактировать
+      delete:           Удалить
+      delete_confirm:   "Уверены, что хотите удалить эту фотографию?"
+      comments:         Коментарии
+      no_comments:      Коментариев еще нет.
+      add_comment:      Добавить коментарий
+    new_ten:
+      header:           Новые 10 фото
+      title:            Названия
+      file:             Файлы
+      upload:           Загрузить
+    new:
+      header:           Новое фото
+    edit:
+      header:           Редактировать фото
+      
+  users:
+    lives_in:           Живет в
+    last_login:         Последний вход
+    dashboard:
+      header:           Главная
+      news:             Новости
+      my_albums:        Мои альбомы
+      no_albums:        У вас нет еще своих альбомов
+      new_album:        Новый альбом
+    index:
+      header:           Люди
+      invite:           Пригласить
+    show:
+      edit:             Редактировать
+      activity:         Активность
+      albums:           Альбомы
+    new:
+      header:           Пригласить пользователя
+      message:          Если Вы знаете кого-то кого можно было бы пригласить в Family Hut, заполните для него карточку.
+    edit:
+      header:           Редактировать запись
+  
+  formtastic:
+    labels:
+      album:
+        name:           Название
+      photo:
+        title:          Название
+        desc:           Описание
+        image:          Картинка
+      comment:
+        comment:        Ваш коментарий
+      user:
+        avatar:         Картинка (64x64)
+        name:           Имя
+        email:          Электронный адрес
+        location:       Город, страна
+        time_zone:      Часовой пояс
+        login:          Логин
+        locale:         Язык
+        password:       Новый пароль
+        password_confirmation: Пароль еще раз
+
+    actions:
+      create:           Создать
+      update:           Сохранить
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:          "Не получилось сохранить {{model}} из-за одной ошибки"
+          other:        "Не получилось сохранить {{model}} из-за нескольких ошибок" 
+        body:           "Ошибки были в следующих полях:"
+      messages:
+        blank:          должно быть заполнено

@@ -2,8 +2,8 @@
   .container
     #links
       - if logged_in?
-        = link_to 'Dashboard', dashboard_path
-        = link_to 'Albums',    albums_path
-        = link_to 'People',    users_path
-        = link_to 'My Account', account_path
-        = link_to 'Log out',   logout_path
+        = link_to t('.dashboard'), dashboard_path
+        = link_to t('.albums'),    albums_path
+        = link_to t('.people'),    users_path
+        = link_to t('.my_account'), account_path
+        = link_to t('.log_out'),   logout_path

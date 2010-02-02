@@ -3,5 +3,5 @@
   .details
     .name= link_to user.name, user
     - if user.location
-      .location== Lives in: #{user.location}
-    .email== Email: #{mail_to user.email}
+      .location== #{t("users.lives_in")}: #{user.location}
+    .email== #{t("formtastic.labels.user.email")}: #{mail_to user.email}

@@ -1,8 +1,6 @@
-%h1 Invite a User
+%h1= t(".header")
 
-%p
-  If you know someone you want to invite to our family hut, use this form to
-  fill in their details.
+%p= t(".message")
 
 - semantic_form_for @user, :url => account_path, :html => { :multipart => true } do |f|
   = render :partial => "form", :object => f
