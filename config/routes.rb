@@ -5,7 +5,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resource          :user_session
   map.resource          :account, :controller => "users"
   map.resources         :users
-  map.resources         :albums, :has_many => :photos
+  map.resources         :albums do |a|
+    a.resources :photos, :collection => { :new_ten => :get, :create_ten => :post }
+  end
 
   map.login '/login',   :controller => "user_sessions", :action => "new"
   map.logout '/logout', :controller => "user_sessions", :action => "destroy"

@@ -5,4 +5,11 @@ class Photo < ActiveRecord::Base
                             :url  => "/assets/photos/:id/:style/:basename.:extension",
                             :path => ":rails_root/public/assets/photos/:id/:style/:basename.:extension"
 
+  before_save :normalize_title
+  
+  private
+  
+  def normalize_title
+    self.title = nil if self.title.blank?
+  end
 end

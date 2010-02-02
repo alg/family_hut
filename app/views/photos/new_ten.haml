@@ -1,0 +1,17 @@
+%h1 New 10 Photos
+
+- form_for :photos, :url => create_ten_album_photos_path(params[:album_id]), :html => { :multipart => true, :id => "ten_photos", :class => "formtastic" } do |f|
+  %table
+    %tr
+      %th Title
+      %th File
+    - 10.times do |i|
+      %tr
+        %td
+          %li.string
+            = f.text_field "photos[#{i}][title]"
+        %td
+          %li.file
+            = f.file_field "photos[#{i}][image]"
+  
+  = f.submit "Upload"

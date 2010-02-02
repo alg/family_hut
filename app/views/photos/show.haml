@@ -7,6 +7,12 @@
   .image= image_tag @photo.image.url(:full)
   .desc= @photo.desc
   
+- if owns?(@photo)
+  %h2 Administration
+
+  = link_to "Edit photo", edit_album_photo_path(@photo.album, @photo)
+  = link_to "Delete photo", [ @photo.album, @photo ], :method => :delete, :confirm => "Are you sure to delete this photo?"
+
 %h2 Comments
 
 .no-items
