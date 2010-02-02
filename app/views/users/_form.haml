@@ -1,5 +1,8 @@
-= form.input :avatar
+- unless form.object.new_record?
+  = form.input :avatar
 = form.input :name
+= form.input :email
+= form.input :location
 = form.input :login
 = form.input :password, :as => :password, :label => (form.object.new_record? ? "Password" : "Change password")
 = form.input :password_confirmation, :as => :password

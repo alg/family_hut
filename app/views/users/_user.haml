@@ -1,7 +1,7 @@
 .user
-  .avatar= image_tag user.avatar.url(:normal)
+  .avatar= link_to image_tag(user.avatar.url(:normal)), user
   .details
-    .name= user.name
+    .name= link_to user.name, user
     - if user.location
       .location== Lives in: #{user.location}
     .email== Email: #{mail_to user.email}

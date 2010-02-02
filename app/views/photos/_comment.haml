@@ -1,0 +1,6 @@
+.comment
+  .avatar= image_tag(comment.user.avatar.url(:small))
+  .details
+    .name= comment.user.name
+    .date= comment.created_at.to_s(:date_time)
+    .body= comment.comment

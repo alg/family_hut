@@ -13,23 +13,17 @@
   = link_to "Edit photo", edit_album_photo_path(@photo.album, @photo)
   = link_to "Delete photo", [ @photo.album, @photo ], :method => :delete, :confirm => "Are you sure to delete this photo?"
 
-%h2 Comments
+%h2
+  %a{ :name => "comments" } Comments
 
-.no-items
-  There are no comments yet.
+- unless @photo.comments.any?
+  .no-items
+    There are no comments yet.
+- else
+  #comments
+    = render :partial => "comment", :collection => @photo.comments.all(:order => "created_at asc", :include => :user)
 
-#comments
-  .comment
-    .avatar= image_tag(current_user.avatar.url(:small))
-    .details
-      .name= current_user.name
-      .date= Time.now.to_s(:date_time)
-      .body
-        My very long comment. My very long comment. My very long comment. My very long comment. My very long comment. My very long comment.
-        My very long comment. My very long comment. My very long comment. My very long comment. My very long comment. My very long comment.
-        My very long comment. My very long comment. My very long comment. My very long comment. My very long comment. My very long comment.
-
-- semantic_form_for :comment do |f|
-  = f.input :body, :as => :text
+- semantic_form_for :comment, :url => create_comment_album_photo_path(@photo.album, @photo) do |f|
+  = f.input :comment, :as => :text
   - f.buttons do
     = f.commit_button "Add comment"

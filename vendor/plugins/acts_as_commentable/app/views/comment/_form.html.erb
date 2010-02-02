@@ -1,0 +1,23 @@
+<div class="parent_comment" style="margin:0;padding:0;display: inline;">
+  <input type="hidden" name="parent_id" value="<%= parent_id %>">
+</div>
+<div>
+  <%= form.label :name, "İsim <span class=\"asterix\">*</span>" %>
+  <%= form.text_field :name %>
+  <%= form.error_message_on :name %>
+</div>
+<div>
+  <%= form.label :email, "Eposta <span class=\"asterix\">*</span>" %>
+  <%= form.text_field :email %>
+  <%= form.error_message_on :email %>
+</div>
+<div>
+  <%= form.label :website, "Website" %>
+  <%= form.text_field :website %>
+  <%= form.error_message_on :website %>
+</div>
+<div>
+  <%= form.label :comment, "Yorum <span class=\"asterix\">*</span>" %>
+  <%= form.text_area :comment %>
+  <%= form.error_message_on :comment %>
+</div>

@@ -1,22 +1,18 @@
-%table.properties
-  %tr
-    %td.label Avatar:
-    %td= image_tag @user.avatar.url(:normal)
-  %tr
-    %td.label Login:
-    %td= @user.login
+%h1= @user.name
 
-  %tr
-    %td.label Name:
-    %td= @user.name
-  
-  %tr
-    %td.label E-mail:
-    %td= @user.email
+- if current_user == @user
+  .commands 
+    = link_to 'Edit', edit_account_path
     
-  %tr
-    %td.label Last login at:
-    %td= @user.last_login_at
+.user
+  .avatar= image_tag @user.avatar.url(:normal)
+  .details
+    .login== Login: #{@user.login}
+    - if @user.location
+      .location== Location: #{@user.location}
+    .email== Email: #{@user.email}
+    .last_login== Last login: #{(@user.last_login_at && time_ago_in_words(@user.last_login_at) + " ago") || "Never"}
 
-.commands 
-  = link_to 'Edit', edit_account_path
+%h2 Albums
+
+= render :partial => "albums/album", :collection => @user.albums

@@ -6,7 +6,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resource          :account, :controller => "users"
   map.resources         :users
   map.resources         :albums do |a|
-    a.resources :photos, :collection => { :new_ten => :get, :create_ten => :post }
+    a.resources         :photos,
+                          :collection => { :new_ten => :get, :create_ten => :post },
+                          :member => { :create_comment => :post }
   end
 
   map.login '/login',   :controller => "user_sessions", :action => "new"

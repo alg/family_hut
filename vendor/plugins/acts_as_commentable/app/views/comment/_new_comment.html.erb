@@ -1,0 +1,14 @@
+<% remote_form_for comment, :url => { :controller => "comment", :action => "create", :id => comment.commentable_id, :type => comment.commentable_type } do |f| %>
+    <div class="cancel_reply" style="display:none"><%= link_to_function "cevabı iptal et", "cancel_reply(this)" %></div>
+    <%= render :partial => "comment/form", :locals => { :form => f, :parent_id => parent_id } %>
+    <%= f.submit "Gönder" %>
+<% end %>
+
+<% javascript_tag do %>
+    function cancel_reply(o){
+        $(o).closest('.cancel_reply').hide();
+        $(o).closest('.form').next().show();
+        $(o).closest('.new_comment').children('.parent_comment').children([name='parent_id']).val('');
+        $('#<%= comment.commentable.div_id %>_container').html($(o).closest('.form'));
+    }
+<% end %>

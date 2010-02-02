@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_no_user, :only => [ :new, :create ]
-  before_filter :require_user,    :only => [ :dashboard, :index, :show, :edit, :update, :destroy ]
+  before_filter :require_user,    :only => [ :dashboard, :index, :show, :edit, :update, :destroy, :new, :create ]
   
   def dashboard
     @albums = current_user.albums
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = current_user
+    @user = params[:id].nil? ? current_user : User.find(params[:id])
   end
  
   def edit

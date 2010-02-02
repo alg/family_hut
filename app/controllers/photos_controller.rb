@@ -17,6 +17,23 @@ class PhotosController < InheritedResources::Base
     redirect_to album_url(@album)
   end
   
+  def create_comment
+    @album = Album.find(params[:album_id])
+    @photo = @album.photos.find(params[:id])
+
+    @comment = Comment.new(params[:comment])
+    @comment.user = current_user
+    
+    if @comment.valid?
+      @photo.comments << @comment
+      redirect_to album_photo_url(@album, @photo, :anchor => "comments")
+    else
+      render :show
+    end
+  rescue => e
+    redirect_to parent_url
+  end
+  
   def destroy
     destroy! { parent_url }
   end

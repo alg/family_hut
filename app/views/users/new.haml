@@ -1,0 +1,8 @@
+%h1 Invite a User
+
+%p
+  If you know someone you want to invite to our family hut, use this form to
+  fill in their details.
+
+- semantic_form_for @user, :url => account_path, :html => { :multipart => true } do |f|
+  = render :partial => "form", :object => f
