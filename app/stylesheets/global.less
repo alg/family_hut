@@ -1,0 +1,192 @@
+@full-width: 980px;
+@photo-brief-width: 256px;
+@photo-brief-height: 256px + 94px;
+@photo-meta-margin: @photo-brief-width + 32px;
+
+body {
+  font-family: helvetica,arial,sans-serif;
+  font-size: 90%;
+}
+
+#header {
+  background: #222;
+  .container {
+    width: @full-width;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
+}
+
+#links {
+  font-size: 90%;
+  
+  a {
+    margin: 0 1em 0 0;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  a:hover {
+    border-bottom: 2px solid #86b226;
+  }
+}
+
+#content {
+  width: @full-width;
+  margin: 1em auto 3em;
+}
+
+h1 { margin-bottom: 0.5em; }
+h2 { clear: both; font-family: georgia, times; color: #222; margin-bottom: 0.5em; border-bottom: 2px solid #888; }
+
+img { border: none; }
+
+div.album {
+  width: 128px;
+  margin: 0 16px 16px 0;
+  float: left;
+  
+  .thumbnail {
+    width: 128px;
+    height: 128px;
+    text-align: center;
+  }
+  
+  .name {
+    margin: 0.5em 0 0 0;
+    text-align: center;
+    a {
+      color: #666;
+      font-size: 90%;
+      text-decoration: none;
+    }
+  }
+}
+
+div.photo {
+  margin: 0 53px 2em 0;
+  float: left;
+  overflow: hidden;
+  height: @photo-brief-height;
+  
+  .image {
+    margin: 1em 0;
+    width: @photo-brief-width;
+    float: left;
+  }
+  
+  .title {
+    font-family: georgia,sans-serif;
+    font-size: 150%;
+  }
+    
+  .item_commands {
+    text-align: left;
+  }
+}
+
+.date {
+  font-size: 85%;
+  color: #888;
+}
+
+
+div.photo.full {
+  height: auto;
+  float: none;
+  margin: 0 0 2em 0;
+
+  .image {
+    float: none;
+    margin: 0;
+    width: auto;
+    text-align: center;
+    img {
+      border: 15px solid #eee;
+    }
+  }
+  
+}
+.section_commands {
+  margin: 0 0 1em 0;
+}
+.item_commands {
+  text-align: center;
+  a {
+    font-size: 85%;
+  }
+}
+
+.commands {
+  margin: 0 0 2em 0;
+  a {
+    margin-right: 1em;
+  }
+}
+
+/* the overlayed element */ 
+.simple_overlay { 
+  /* must be initially hidden */ 
+  display:none; 
+   
+  /* place overlay on top of other elements */ 
+  z-index:10000; 
+   
+  /* styling */ 
+  background-color:#fafafa; 
+   
+  min-height:200px; 
+  border:1px solid #aaa; 
+   
+  /* CSS3 styling for latest browsers */ 
+  -moz-box-shadow:0 0 90px 5px #000; 
+  -webkit-box-shadow: 0 0 90px #000;     
+
+  /* close button positioned on upper right corner */ 
+  .close { 
+    background-image:url(/images/close.png); 
+    position:absolute; 
+    right:-15px; 
+    top:-15px; 
+    cursor:pointer; 
+    height:35px; 
+    width:35px; 
+  }
+  
+  .details {
+    padding: 5px;
+  }
+
+  h3 {
+    color: #222;
+    font-family: georgia,sans-serif;
+  }
+  
+  h4 { font-weight: normal; font-size: 85%; color: #666; }
+} 
+ 
+form.comment {
+  #comment_body {
+    width: 956px;
+    height: 200px;
+  }
+}
+
+#comments {
+  .comment {
+    margin: 1em 0;
+    .avatar {
+      float: left;
+      margin-right: 16px;
+    }
+    
+    .details {
+      margin-left: 64px;
+      
+      .name {
+        font-size: 110%;
+        font-weight: bold;
+      }
+    }
+  }
+}

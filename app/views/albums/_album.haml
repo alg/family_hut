@@ -1,7 +1,3 @@
 .album
   .thumbnail= link_to image_tag(album_image_url(album)), album
   .name= link_to album.name, album
-  - if owns?(album)
-    .item_commands
-      = link_to "Edit",   edit_album_path(album)
-      = link_to "Delete", album_path(album), :method => :delete, :confirm => "Are you sure to delete this album?"

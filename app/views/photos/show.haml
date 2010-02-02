@@ -1,9 +1,29 @@
-%h1= (@photo.title || "Untitled")
+%h1
+  = (@photo.title || "Untitled")
+  == (#{link_to @photo.album.name, parent_path})
+  
+    
+.photo.full
+  .image= image_tag @photo.image.url(:full)
+  .desc= @photo.desc
+  
+%h2 Comments
 
-= image_tag @photo.image.url
+.no-items
+  There are no comments yet.
 
-- if @photo.desc.any?
-  = @photo.desc
+#comments
+  .comment
+    .avatar= image_tag(current_user.avatar.url(:small))
+    .details
+      .name= current_user.name
+      .date= Time.now.to_s(:date_time)
+      .body
+        My very long comment. My very long comment. My very long comment. My very long comment. My very long comment. My very long comment.
+        My very long comment. My very long comment. My very long comment. My very long comment. My very long comment. My very long comment.
+        My very long comment. My very long comment. My very long comment. My very long comment. My very long comment. My very long comment.
 
-.commands
-  = link_to "Back to #{@photo.album.name}", parent_path
+- semantic_form_for :comment do |f|
+  = f.input :body, :as => :text
+  - f.buttons do
+    = f.commit_button "Add comment"
