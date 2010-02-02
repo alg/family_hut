@@ -19,3 +19,8 @@ Factory.define :photo do |f|
   f.title                 { Factory.next(:name) }
   f.association           :album
 end
+
+Factory.define :comment do |f|
+  f.comment               "test"
+  f.comment_type          "comment"
+end

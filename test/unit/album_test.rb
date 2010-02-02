@@ -17,5 +17,4 @@ class AlbumTest < ActiveSupport::TestCase
       assert_equal "/images/thumb/missing.png", photo.album.thumbnail_url
     end
   end
-  
 end

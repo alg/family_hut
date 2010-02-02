@@ -10,6 +10,7 @@ class UsersControllerTest < ActionController::TestCase
     setup { get :dashboard }
     should_render_template :dashboard
     should_assign_to(:albums) { @user.albums }
+    should_assign_to(:events)
   end
   
   context "checking people's list" do

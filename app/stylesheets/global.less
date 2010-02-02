@@ -190,27 +190,44 @@ div.user {
   }
 }
 
-#comments {
-  .comment {
-    margin: 1em 0;
-    .avatar {
-      float: left;
-      margin-right: 16px;
-    }
+#comments .comment, div.event {
+  margin: 1em 0;
+  .avatar {
+    float: left;
+    margin-right: 16px;
+  }
+  
+  .details {
+    margin-left: 64px;
     
-    .details {
-      margin-left: 64px;
-      
-      .name {
-        font-size: 110%;
-        font-weight: bold;
-      }
+    .name {
+      font-size: 110%;
+      font-weight: bold;
     }
   }
 }
 
+div.event {
+  .details .body {
+    color: #888;
+  }
+}
 form#ten_photos {
   td {
     padding: 5px 2px;
   }
+}
+
+#news {
+  float: right;
+  width: 384px;
+  margin-left: 16px;
+}
+
+#news h2, #my_albums h2 {
+  margin-top: 0;
+  clear: none;
+}
+#my_albums {
+  overflow: hidden;
 }

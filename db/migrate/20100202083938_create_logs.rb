@@ -3,7 +3,7 @@ class CreateLogs < ActiveRecord::Migration
     create_table :logs do |t|
       t.references  :user,      :null => false
       t.string      :activity,  :null => false
-      t.text        :message
+      t.string      :target
 
       t.timestamps
     end

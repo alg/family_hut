@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20100202083938) do
   create_table "logs", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.string   "activity",   :null => false
-    t.text     "message"
+    t.string   "target"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

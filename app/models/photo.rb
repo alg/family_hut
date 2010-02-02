@@ -12,6 +12,6 @@ class Photo < ActiveRecord::Base
   private
   
   def normalize_title
-    self.title = nil if self.title.blank?
+    self.title = "Untitled" if self.title.blank?
   end
 end

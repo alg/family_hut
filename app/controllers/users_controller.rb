@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   
   def dashboard
     @albums = current_user.albums
+    @events = Log.all(:limit => 10, :order => "created_at desc")
   end
   
   def index
