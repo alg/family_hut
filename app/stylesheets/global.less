@@ -1,6 +1,6 @@
 @full-width: 980px;
 @photo-brief-width: 256px;
-@photo-brief-height: 256px + 94px;
+@photo-brief-height: 256px + 84px;
 @photo-meta-margin: @photo-brief-width + 32px;
 
 body {
@@ -72,14 +72,17 @@ div.photo {
   height: @photo-brief-height;
   
   .image {
-    margin: 1em 0;
+    margin: 0.25em 0;
     width: @photo-brief-width;
     float: left;
   }
   
   .title {
-    font-family: georgia,sans-serif;
-    font-size: 150%;
+    font-family: helvetica,arial,sans-serif;
+    font-size: 125%;
+    overflow: hidden;
+    width: 256px;
+    height: 1.25em;
   }
     
   .item_commands {
