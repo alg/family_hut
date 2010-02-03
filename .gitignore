@@ -10,3 +10,4 @@ bin/*
 !vendor/gems/cache/
 public/assets
 config/deploy.rb
+Capfile
