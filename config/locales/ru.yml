@@ -97,7 +97,7 @@ ru:
         avatar:         Картинка (64x64)
         name:           Имя
         email:          Электронный адрес
-        location:       Город, страна
+        location:       "Город, страна"
         time_zone:      Часовой пояс
         login:          Логин
         locale:         Язык
