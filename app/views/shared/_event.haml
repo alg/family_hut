@@ -1,4 +1,4 @@
-.event{ :class => event.created_at < current_user.last_login_at ? "old" : nil }
+.event{ :class => (current_user.last_login_at && (event.created_at < current_user.last_login_at)) ? "old" : nil }
   .avatar= link_to image_tag(event.user.avatar.url(:small)), event.user
   .details
     .name= link_to event.user.name, event.user
