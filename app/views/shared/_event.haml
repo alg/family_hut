@@ -3,4 +3,4 @@
   .details
     .name= link_to event.user.name, event.user
     .date= event.created_at.to_s(:date_time)
-    .message== #{event.activity} #{raw event.target}
+    .message== #{raw t(event.activity, event.data)}

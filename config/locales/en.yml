@@ -82,7 +82,7 @@ en:
         avatar:         Image (64x64)
         name:           Name
         email:          E-mail
-        location:       City, Country
+        location:       "City, Country"
         time_zone:      Time zone
         login:          Login
         locale:         Langugae
@@ -92,3 +92,11 @@ en:
     actions:
       create:           Create
       update:           Update
+
+  activity:
+    album:
+      created:          'created album <a href="/albums/{{album_id}}">{{album_name}}</a>'
+    photo:
+      created:          'uploaded photo(s) to album <a href="/albums/{{album_id}}">{{album_name}}</a>'
+    comment:
+      created:          "commented on <a href=\"/albums/{{album_id}}/photos/{{photo_id}}\">{{photo_title}}</a> from <a href=\"/albums/{{album_id}}\">{{album_name}}</a>:<div class='body'>{{comment_comment}}</div>"

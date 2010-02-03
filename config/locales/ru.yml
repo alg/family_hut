@@ -117,3 +117,11 @@ ru:
         body:           "Ошибки были в следующих полях:"
       messages:
         blank:          должно быть заполнено
+
+  activity:
+    album:
+      created:          'создал альбом <a href="/albums/{{album_id}}">{{album_name}}</a>'
+    photo:
+      created:          'добавил фотографию(ии) в альбом <a href="/albums/{{album_id}}">{{album_name}}</a>'
+    comment:
+      created:          "прокоментировал <a href=\"/albums/{{album_id}}/photos/{{photo_id}}\">{{photo_title}}</a> из <a href=\"/albums/{{album_id}}\">{{album_name}}</a>:<div class='body'>{{comment_comment}}</div>"

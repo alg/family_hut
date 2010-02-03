@@ -18,7 +18,7 @@ module Paperclip
       }
     end
 
-    attr_reader :name, :instance, :styles, :default_style, :convert_options, :queued_for_write, :options
+    attr_reader :name, :instance, :styles, :default_style, :convert_options, :queued_for_write, :options, :tags
 
     # Creates an Attachment object. +name+ is the name of the attachment,
     # +instance+ is the ActiveRecord object instance it's attached to, and
@@ -48,6 +48,7 @@ module Paperclip
       @errors            = {}
       @validation_errors = nil
       @dirty             = false
+      @tags              = options[:tags] || {}
 
       normalize_style_definition
       initialize_storage

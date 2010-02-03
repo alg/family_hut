@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100202223451) do
+ActiveRecord::Schema.define(:version => 20100203031108) do
 
   create_table "albums", :force => true do |t|
     t.string   "name",                          :null => false
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(:version => 20100202223451) do
   create_table "logs", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.string   "activity",   :null => false
-    t.string   "target"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "data"
   end
 
   add_index "logs", ["created_at"], :name => "index_logs_on_created_at"
