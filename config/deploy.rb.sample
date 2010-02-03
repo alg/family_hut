@@ -1,0 +1,62 @@
+set :application, "your application"
+set :repository,  "git://github.com/alg/family_hut.git"
+set :rails_env,   "production"
+
+set :scm, :git
+
+role :web, "your domain"                   # Your HTTP server, Apache/etc
+role :app, "your domain"                   # This may be the same as your `Web` server
+role :db,  "your domain", :primary => true # This is where Rails migrations will run
+
+set :user,                  "username"
+set :runner,                "username"
+set :use_sudo,              false
+
+set :deploy_via,            :export
+
+# Create uploads directory and link
+after "deploy:symlink" do
+  run "cp #{shared_path}/config/database.yml #{current_path}/config/database.yml"
+  run "cp #{shared_path}/config/production_custom.rb #{current_path}/config/environments/production_custom.rb"
+  run "ln -s #{shared_path}/assets #{current_path}/public/assets"
+end
+
+namespace :bundler do
+  task :install do
+    run "gem install bundler --source=http://gemcutter.org"
+  end
+
+  task :symlink_vendor do
+    shared_gems   = "#{shared_path}/vendor/bundler_gems"
+    release_gems  = "#{release_path}/vendor/bundler_gems"
+
+    run "mkdir -p #{release_gems}"
+
+    %w(gems specifications).each do |sub_dir|
+      shared_sub_dir  = "#{shared_gems}/#{sub_dir}"
+      release_sub_dir = "#{release_gems}/ruby/1.8/#{sub_dir}"
+      run "mkdir -p #{shared_sub_dir} && ln -s #{shared_sub_dir} #{release_sub_dir}"
+    end
+  end
+
+  task :bundle_new_release do
+    bundler.symlink_vendor
+    run "cd #{release_path} && gem bundle --only #{rails_env}"
+  end
+end
+
+# hook into capistrano's deploy task
+after 'deploy:update_code', 'bundler:bundle_new_release'
+
+# Passenger tasks
+namespace :deploy do
+  desc "Restarting mod_rails with restart.txt"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
+  end
+end

@@ -11,4 +11,3 @@ vendor/bundler_gems/*
 !vendor/bundler_gems/ruby/1.8/cache/
 public/assets
 config/deploy.rb
-Capfile
