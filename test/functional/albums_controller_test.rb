@@ -42,7 +42,6 @@ class AlbumsControllerTest < ActionController::TestCase
     context "creating" do
       setup { post :create, :album => { :name => "test" }}
       should_redirect_to("album") { Album.first }
-      should_set_the_flash_to "Album was successfully created."
       should "add db record" do
         assert_not_nil Album.find_by_name("test")
       end

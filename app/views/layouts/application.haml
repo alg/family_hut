@@ -2,7 +2,7 @@
 %html{ "xmlns" => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", "lang" => "en" }
   %head
     %meta{ "http-equiv" => "content-type", "content" => "text/html;charset=UTF-8" }
-    %title== #{@title && (@title + " -")} #{t(:family_album)}
+    %title== #{@title && (@title + " -")} #{t(:family_hut)}
     = sprockets_include_tag
     = stylesheet_link_tag 'reset', 'global', 'formtastic', 'formtastic_changes', :cache => "main"
     = javascript_tag "window._token = '#{form_authenticity_token}'" if ActionController::Base.allow_forgery_protection

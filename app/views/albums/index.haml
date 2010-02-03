@@ -4,7 +4,7 @@
   = link_to t(".new"), new_album_path
   
 - if @owners_to_albums.empty?
-  .no-item= t("no_albums")
+  .no-item= t("albums.no_albums")
 - else
   - @owners_to_albums.sort_by { |owner, albums| owner.name }.each do |owner, albums|
     = render :partial => "owner_albums", :locals => { :owner => owner, :albums => albums }

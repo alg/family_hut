@@ -9,4 +9,10 @@ class PhotoTest < ActiveSupport::TestCase
     assert_equal "Untitled", photo.title
   end
   
+  should "return photos with images" do
+    photo = Factory(:photo)
+    photo_with_image = Factory(:photo_with_image)
+    
+    assert_equal [ photo_with_image ], Photo.with_image.all
+  end
 end

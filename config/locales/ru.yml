@@ -3,7 +3,7 @@ ru:
   back:                 Назад
 
   datetime:
-    ago:                назад
+    ago:                    назад
     distance_in_words:
       less_than_x_seconds:  "меньше {{count}} секунд"
       less_than_x_minutes:  "меньше {{count}} минут"
@@ -26,6 +26,7 @@ ru:
       log_out:          Выйти
   
   albums:
+    no_albums:          Еще нет альбомов
     index:
       header:           Все альбомы
       new:              Новый альбом
@@ -66,8 +67,8 @@ ru:
     dashboard:
       header:           Главная
       news:             Новости
-      my_albums:        Мои альбомы
       no_albums:        У вас нет еще своих альбомов
+      my_albums:        Мои альбомы
       new_album:        Новый альбом
     index:
       header:           Люди

@@ -20,6 +20,13 @@ Factory.define :photo do |f|
   f.association           :album
 end
 
+Factory.define :photo_with_image, :parent => :photo do |f|
+  f.image_file_name       { Factory.next(:name) }
+  f.image_content_type    "image/jpg"
+  f.image_file_size       1000
+  f.image_updated_at      Time.now
+end
+
 Factory.define :comment do |f|
   f.comment               "test"
   f.comment_type          "comment"

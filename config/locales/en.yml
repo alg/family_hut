@@ -11,8 +11,9 @@ en:
       log_out:          Log out
   
   albums:
+    no_albums:          There's no albums yet
     index:
-      header:           Åll Albums
+      header:           All Albums
       new:              New Album
     show:
       no_photos:        There are no photos in this album.
@@ -52,7 +53,7 @@ en:
       header:           Dashboard
       news:             News
       my_albums:        My Albums
-      no_albums:        You don't have albums yet
+      no_albums:        You don't have own albums yet
       new_album:        New Album
     index:
       header:           People

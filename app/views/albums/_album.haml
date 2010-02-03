@@ -1,3 +1,3 @@
 .album
-  .thumbnail= link_to image_tag(album_image_url(album)), album
-  .name= link_to album.name, album
+  .thumbnail= link_to image_tag(album.thumbnail_url), album
+  .name= link_to "#{album.name} (#{album.photos.size})", album

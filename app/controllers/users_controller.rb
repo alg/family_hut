@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def dashboard
     @albums = current_user.albums
-    @events = Log.all(:limit => 10, :order => "created_at desc")
+    @events = Log.all(:limit => 10, :order => "created_at desc", :include => :user)
   end
   
   def index
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   
   def show
     @user = params[:id].nil? ? current_user : User.find(params[:id])
-    @events = @user.logs.all(:limit => 10, :order => "created_at desc")
+    @events = @user.logs.all(:limit => 10, :order => "created_at desc", :include => :user)
   end
  
   def edit
