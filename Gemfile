@@ -10,6 +10,8 @@ gem 'mysql',          '2.8.1'
 gem 'paperclip',      '2.3.1.1'
 gem 'sprockets',      '1.0.2'
 gem 'less',           '1.2.21'
+gem 'responders',     '0.4.2'
+gem 'erubis',         '2.6.5'
  
 only :test do
   gem 'shoulda',      '2.10.3'
