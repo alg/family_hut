@@ -38,7 +38,7 @@ Installation
 
 1. Download the source:
 
-    git clone http://github.com/alg/family_hut.git
+		git clone http://github.com/alg/family_hut.git
 
 2. Bundle gems:
 
@@ -49,7 +49,7 @@ Installation
 
 4. Setup the app:
 
-    rake db:setup
+		rake db:setup
 
 The first user will be named `first` and will have password `first`. You can rename
 it as you like and start inviting other members.
