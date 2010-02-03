@@ -7,7 +7,6 @@
 .user
   .avatar= image_tag @user.avatar.url(:normal)
   .details
-    .login== #{t("formtastic.labels.user.login")}: #{@user.login}
     - if @user.location
       .location== #{t("formtastic.labels.user.location")}: #{@user.location}
     .email== #{t("formtastic.labels.user.email")}: #{@user.email}
