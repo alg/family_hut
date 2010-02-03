@@ -38,7 +38,7 @@ Installation
 
 1. Download the source:
 
-    git clone http://github.com/alg/family_hut
+    git clone http://github.com/alg/family_hut.git
 	
 2. Copy the database config from `config/database.yml.sample` to `config/database.yml`
 	 and update as appropriate.
