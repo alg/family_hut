@@ -40,9 +40,9 @@ Installation
 
     git clone http://github.com/alg/family_hut.git
 
-2. Build gems:
+2. Bundle gems:
 
-		git bundle
+		gem bundle
 		
 3. Copy the database config from `config/database.yml.sample` to `config/database.yml`
 	 and update as appropriate.
