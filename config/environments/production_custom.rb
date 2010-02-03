@@ -1,4 +1,6 @@
-# Exception notifications
-ExceptionNotifier.exception_recipients  = %w(joe@schmoe.com bill@schmoe.com)
-ExceptionNotifier.sender_address        = %("Application Error" <noreply@schmoe.com>)
-ExceptionNotifier.email_prefix          = "[FamilyHut] "
+# Mail server configuration
+ActionMailer::Base.smtp_settings = {
+  :address    => "127.0.0.1",
+  :port       => 25,
+  :domain     => "schmoe.com"
+}
