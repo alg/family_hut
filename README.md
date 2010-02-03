@@ -39,11 +39,15 @@ Installation
 1. Download the source:
 
     git clone http://github.com/alg/family_hut.git
-	
-2. Copy the database config from `config/database.yml.sample` to `config/database.yml`
+
+2. Build gems:
+
+		git bundle
+		
+3. Copy the database config from `config/database.yml.sample` to `config/database.yml`
 	 and update as appropriate.
 
-3. Setup the app:
+4. Setup the app:
 
     rake db:setup
 
