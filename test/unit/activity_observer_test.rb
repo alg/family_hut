@@ -30,10 +30,10 @@ class ActivityObserverTest < ActiveSupport::TestCase
   
   should "log creating a comment" do
     photo = Factory(:photo)
-    Factory(:comment, :commentable => photo, :comment => "Something that I said")
+    user = Factory(:user)
+    Factory(:comment, :user => user, :commentable => photo, :comment => "Something that I said")
     
     album = photo.album
-    user  = album.owner
     comment = photo.comments.last
     assert_log(user, "activity.comment.created", {
       :album_id   => album.id,   :album_name      => album.name,

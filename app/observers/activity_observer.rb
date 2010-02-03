@@ -33,7 +33,7 @@ class ActivityObserver < ActiveRecord::Observer
   def comment_created(comment)
     photo = comment.commentable
     album = photo.album
-    log(album.owner, "activity.comment.created", {
+    log(comment.user, "activity.comment.created", {
       :album_id => album.id,      :album_name       => album.name,
       :photo_id => photo.id,      :photo_title      => photo.title,
       :comment_id => comment.id,  :comment_comment  => comment.comment })

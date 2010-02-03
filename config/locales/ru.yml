@@ -120,8 +120,8 @@ ru:
 
   activity:
     album:
-      created:          'создал альбом <a href="/albums/{{album_id}}">{{album_name}}</a>'
+      created:          'создал(а) альбом <a href="/albums/{{album_id}}">{{album_name}}</a>'
     photo:
-      created:          'добавил фотографию(ии) в альбом <a href="/albums/{{album_id}}">{{album_name}}</a>'
+      created:          'добавил(а) фотографии в альбом <a href="/albums/{{album_id}}">{{album_name}}</a>'
     comment:
-      created:          "прокоментировал <a href=\"/albums/{{album_id}}/photos/{{photo_id}}\">{{photo_title}}</a> из <a href=\"/albums/{{album_id}}\">{{album_name}}</a>:<div class='body'>{{comment_comment}}</div>"
+      created:          "прокоментировал(а) <a href=\"/albums/{{album_id}}/photos/{{photo_id}}\">{{photo_title}}</a> из <a href=\"/albums/{{album_id}}\">{{album_name}}</a>:<div class='body'>{{comment_comment}}</div>"
