@@ -1,0 +1,19 @@
+common: &common
+  adapter: mysql
+  username: root
+  password:
+
+development:
+  <<: *common
+  database: family_hut_d
+
+test: &TEST
+  <<: *common
+  database: family_hut_t
+
+production:
+  <<: *common
+  database: family_hut
+
+cucumber:
+  <<: *TEST
