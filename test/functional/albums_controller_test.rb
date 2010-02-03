@@ -64,5 +64,12 @@ class AlbumsControllerTest < ActionController::TestCase
       should_render_template :show
       should_assign_to(:album) { @album }
     end
+    
+    context "showing missing album" do
+      setup do
+        get :show, :id => 0
+      end
+      should_redirect_to("albums") { albums_url }
+    end
   end
 end

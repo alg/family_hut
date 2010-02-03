@@ -2,6 +2,18 @@ require 'test_helper'
 
 class PhotosControllerTest < ActionController::TestCase
 
+  context "showing" do
+    setup { log_in }
+    context "missing photos" do
+      setup do
+        @album = Factory(:album)
+        get :show, :album_id => @album.id, :id => 0
+      end
+      should_redirect_to("album") { album_url(@album) }
+    end
+  end
+  
+  
   context "creating comments" do
     setup do
       @photo = Factory(:photo)

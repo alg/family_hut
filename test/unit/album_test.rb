@@ -10,7 +10,7 @@ class AlbumTest < ActiveSupport::TestCase
 
   context "thumbnail url" do
     should "return nil if there are no images in the album yet" do
-      assert_equal "/images/empty_album.png", Album.new.thumbnail_url
+      assert_equal "/images/empty_album.gif", Album.new.thumbnail_url
     end
 
     should "return the first photo thumbnail as the result" do

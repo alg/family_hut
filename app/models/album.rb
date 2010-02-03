@@ -6,7 +6,7 @@ class Album < ActiveRecord::Base
 
   # We use this to access photo image, not saving our own images
   has_attached_file :image, Photo::IMAGE_OPTIONS.merge({
-    :default_url  => "/images/empty_album.png", 
+    :default_url  => "/images/empty_album.gif", 
     :tags         => { :photo_id => lambda { |attachment, style| attachment.instance.cover_photo_id } }})
   
   validates_presence_of :name

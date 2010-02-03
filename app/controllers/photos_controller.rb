@@ -3,6 +3,12 @@ class PhotosController < InheritedResources::Base
   before_filter :require_user
   belongs_to :album
   
+  def show
+    show!
+  rescue => e
+    redirect_to parent_url
+  end
+  
   def create
     create! { parent_url }
   end
