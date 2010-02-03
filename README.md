@@ -27,6 +27,12 @@ So far I plan to add only:
 * Email notifications
 * Member mini-blogs
 
+Requirements
+============
+
+* Rails 2.3.5 (other 2.x versions untested and may work)
+* All other gems vendored
+
 Installation
 ============
 
