@@ -15,18 +15,13 @@ Rails::Initializer.run do |config|
   config.load_paths += %W( #{RAILS_ROOT}/app/observers )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  # config.gem "bj"
-  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-  # config.gem "sqlite3-ruby", :lib => "sqlite3"
-  # config.gem "aws-s3", :lib => "aws/s3"
-
   config.gem "authlogic"
   config.gem "formtastic"
   config.gem "will_paginate"
   config.gem "haml"
   config.gem "less"
   config.gem "sprockets"
-  config.gem "paperclip"
+  config.gem "alg-paperclip", :lib => "paperclip"
   config.gem "erubis"
   config.gem "responders"
 

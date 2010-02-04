@@ -1,21 +1,22 @@
-#path "vendor/bundler_gems"
-
+source :gemcutter
 source "http://gems.github.com"
 
-git "git://github.com/alg/paperclip.git"
- 
+gem "builder"
+gem "i18n"
+gem "tmail"
+
 gem "rails",          '2.3.5'
 gem 'will_paginate'
 gem 'authlogic'
 gem 'haml'
 gem 'formtastic'
 gem 'mysql'
-#gem 'paperclip'
 gem 'sprockets'
+gem 'alg-paperclip', :require => 'paperclip'
 gem 'less'
 gem 'responders'
 gem 'erubis'
  
-gem 'shoulda', :only => :test
-gem 'factory_girl', :only => :test
-gem 'faker', :only => :test
+gem 'shoulda',      :group => :test
+gem 'factory_girl', :group => :test
+gem 'faker',        :group => :test

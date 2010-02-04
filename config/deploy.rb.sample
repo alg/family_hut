@@ -23,7 +23,7 @@ end
 
 namespace :bundler do
   task :install do
-    run "gem install bundler --source=http://gemcutter.org"
+    run "gem install bundler"
   end
 
   task :symlink_vendor do
@@ -41,7 +41,7 @@ namespace :bundler do
 
   task :bundle_new_release do
     bundler.symlink_vendor
-    run "cd #{release_path} && gem bundle --only #{rails_env}"
+    run "cd #{release_path} && bundle install"
   end
 end
 
