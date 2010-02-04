@@ -1,6 +1,6 @@
-= form.input :title
-= form.input :desc
 - if form.object.new_record?
   = form.input :image
+= form.input :title, :required => false
+= form.input :desc, :required => false
 - form.buttons do
   = form.commit_button

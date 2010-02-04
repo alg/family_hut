@@ -8,7 +8,7 @@
   .avatar= image_tag @user.avatar.url(:normal)
   .details
     - if @user.location
-      .location== #{t("formtastic.labels.user.location")}: #{@user.location}
+      .location== #{t("users.lives_in")}: #{@user.location}
     .email== #{t("formtastic.labels.user.email")}: #{@user.email}
     .last_login== #{t("users.last_login")}: #{(@user.last_login_at && time_ago_in_words(@user.last_login_at) + " ago") || "Never"}
 
