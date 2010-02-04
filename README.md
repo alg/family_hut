@@ -31,6 +31,7 @@ Requirements
 ============
 
 * Rails 2.3.5 (other 2.x versions untested and may work)
+* Bundler 0.9+
 * All other gems vendored
 
 Installation
@@ -42,7 +43,7 @@ Installation
 
 2. Bundle gems:
 
-		gem bundle
+		bundle install
 		
 3. Copy the database config from `config/database.yml.sample` to `config/database.yml`
 	 and update as appropriate.
