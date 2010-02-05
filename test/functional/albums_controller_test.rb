@@ -7,6 +7,16 @@ class AlbumsControllerTest < ActionController::TestCase
       setup { get :index }
       should_redirect_to("login") { login_url }
     end
+    
+    context "deleting someone's albums" do
+      setup do
+        @album = Factory(:album)
+        log_in
+        delete :destroy, :id => @album.id
+      end
+      should_set_the_flash_to "You cannot delete someone else's albums"
+      should_redirect_to("album") { album_url(@album) }
+    end
   end
 
   context "listing albums" do

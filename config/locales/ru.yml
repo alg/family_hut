@@ -41,6 +41,8 @@ ru:
       header:           Новый альбом
     edit:
       header:           Редактировать альбом
+    destroy:
+      disallowed:       Вы не можете удалять чужие альбомы
   
   photos:
     show:

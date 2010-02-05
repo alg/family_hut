@@ -8,6 +8,7 @@ Factory.define :user do |f|
   f.email                 { Factory.next(:email) }
   f.password              'testing'
   f.password_confirmation { |o| o.password }
+  f.locale                'en'
 end
 
 Factory.define :album do |f|

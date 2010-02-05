@@ -17,5 +17,14 @@ class AlbumsController < InheritedResources::Base
     @album = Album.new(params[:album])
     @album.owner = current_user
     create!
-  end  
+  end
+  
+  def destroy
+    if resource.owner != current_user
+      flash[:error] = t("albums.destroy.disallowed")
+      redirect_to album_url(resource)
+    else
+      destroy!
+    end
+  end
 end
