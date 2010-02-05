@@ -10,7 +10,8 @@
 - if @album.photos.empty?
   .no-items
     = t('.no_photos')
-    
-    = link_to t(".add_photo"),      new_album_photo_path(@album)
+    - if owns?(@album)
+      = link_to t(".add_photo"),      new_album_photo_path(@album)
+
 - else
   = render :partial => "photo", :collection => @album.photos.all(:order => "id desc")
