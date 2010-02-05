@@ -18,13 +18,22 @@ class AlbumsController < InheritedResources::Base
     @album.owner = current_user
     create!
   end
+
+  def update
+    update! unless modifications_disallowed?(t("albums.update.disallowed"))
+  end
   
   def destroy
+    destroy! unless modifications_disallowed?(t("albums.destroy.disallowed"))
+  end
+  
+  private
+  
+  def modifications_disallowed?(message)
     if resource.owner != current_user
-      flash[:error] = t("albums.destroy.disallowed")
+      flash[:error] = message
       redirect_to album_url(resource)
-    else
-      destroy!
+      return true
     end
   end
 end

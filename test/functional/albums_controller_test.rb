@@ -10,11 +10,19 @@ class AlbumsControllerTest < ActionController::TestCase
     
     context "deleting someone's albums" do
       setup do
-        @album = Factory(:album)
         log_in
-        delete :destroy, :id => @album.id
+        delete :destroy, :id => (@album = Factory(:album)).id
       end
       should_set_the_flash_to "You cannot delete someone else's albums"
+      should_redirect_to("album") { album_url(@album) }
+    end
+
+    context "editing someone's albums" do
+      setup do
+        log_in
+        post :update, :id => (@album = Factory(:album)).id
+      end
+      should_set_the_flash_to "You cannot edit someone else's albums"
       should_redirect_to("album") { album_url(@album) }
     end
   end

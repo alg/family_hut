@@ -26,6 +26,8 @@ en:
       header:           New Album
     edit:
       header:           Edit Album
+    update:
+      disallowed:       You cannot edit someone else's albums
     destroy:
       disallowed:       You cannot delete someone else's albums
   
