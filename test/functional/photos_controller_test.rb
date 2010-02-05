@@ -12,8 +12,12 @@ class PhotosControllerTest < ActionController::TestCase
       should_redirect_to("album") { album_url(@album) }
     end
     
-    [ [ "delete", "delete", :destroy ],
-      [ "update", "post",   :update ] ].each do |verb, http_verb, action|
+    [ [ "delete",       "delete", :destroy ],
+      [ "update",       "post",   :update ],
+      [ "upload",       "get",    :new ],
+      [ "upload ten",   "get",    :new_ten ],
+      [ "create",       "put",    :create ],
+      [ "create ten",   "put",    :create_ten ] ].each do |verb, http_verb, action|
       context "#{verb} someone's photos" do
         setup do
           @photo = Factory(:photo)
