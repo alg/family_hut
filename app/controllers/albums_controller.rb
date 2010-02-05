@@ -1,6 +1,7 @@
 class AlbumsController < InheritedResources::Base
 
-  before_filter :require_user 
+  before_filter :require_user
+  before_filter :require_ownership, :only => [ :edit, :update, :destroy ]
 
   def index
     albums = Album.all(:include => :owner)
@@ -19,21 +20,14 @@ class AlbumsController < InheritedResources::Base
     create!
   end
 
-  def update
-    update! unless modifications_disallowed?(t("albums.update.disallowed"))
-  end
-  
-  def destroy
-    destroy! unless modifications_disallowed?(t("albums.destroy.disallowed"))
-  end
-  
   private
   
-  def modifications_disallowed?(message)
+  def require_ownership
     if resource.owner != current_user
-      flash[:error] = message
+      flash[:error] = i18n_disallowed_message("albums")
       redirect_to album_url(resource)
       return true
     end
   end
+  
 end

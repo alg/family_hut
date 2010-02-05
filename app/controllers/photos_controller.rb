@@ -1,6 +1,7 @@
 class PhotosController < InheritedResources::Base
 
   before_filter :require_user
+  before_filter :require_ownership, :only => [ :edit, :update, :destroy ]
   belongs_to :album
   
   def show
@@ -40,8 +41,22 @@ class PhotosController < InheritedResources::Base
     redirect_to parent_url
   end
   
+  def update
+    update! unless modifications_disallowed?("update")
+  end
+  
   def destroy
-    destroy! { parent_url }
+    destroy! { parent_url } unless modifications_disallowed?("delete")
+  end
+  
+  private
+
+  def require_ownership
+    if resource.album.owner != current_user
+      flash[:error] = i18n_disallowed_message("photos")
+      redirect_to album_photo_url(resource.album, resource)
+      return false
+    end
   end
 
 end

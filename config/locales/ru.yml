@@ -24,7 +24,14 @@ ru:
       people:           Люди
       my_account:       Моя запись
       log_out:          Выйти
-  
+
+  models:
+    albums:             альбомы
+    photos:             фотографии
+
+  disallowed:
+    message:            "Вы не можете модифицировать чужие {{models}}"
+    
   albums:
     no_albums:          Еще нет альбомов
     index:
@@ -41,10 +48,6 @@ ru:
       header:           Новый альбом
     edit:
       header:           Редактировать альбом
-    update:
-      disallowed:       Вы не можете редактировать чужие альбомы
-    destroy:
-      disallowed:       Вы не можете удалять чужие альбомы
   
   photos:
     show:

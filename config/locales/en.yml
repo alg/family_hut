@@ -9,6 +9,13 @@ en:
       people:           People
       my_account:       My Account
       log_out:          Log out
+
+  models:
+    albums:             albums
+    photos:             photos
+
+  disallowed:
+    message:            "You cannot modify someone else's {{models}}"
   
   albums:
     no_albums:          There's no albums yet
@@ -26,10 +33,6 @@ en:
       header:           New Album
     edit:
       header:           Edit Album
-    update:
-      disallowed:       You cannot edit someone else's albums
-    destroy:
-      disallowed:       You cannot delete someone else's albums
   
   photos:
     show:

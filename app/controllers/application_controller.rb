@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   filter_parameter_logging :password, :password_confirmation
 
+  protected
+  
+  # Returns an i18n message for disallowed access to given models
+  def i18n_disallowed_message(models)
+    t("disallowed.message", :models => t("models.#{models}"))
+  end
+  
   private
 
   def current_user_session

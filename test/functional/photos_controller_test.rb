@@ -11,6 +11,22 @@ class PhotosControllerTest < ActionController::TestCase
       end
       should_redirect_to("album") { album_url(@album) }
     end
+    
+    [ [ "delete", "delete", :destroy ],
+      [ "update", "post",   :update ] ].each do |verb, http_verb, action|
+      context "#{verb} someone's photos" do
+        setup do
+          @photo = Factory(:photo)
+          @album = @photo.album
+          log_in
+
+          send(http_verb, action, :album_id => @album.id, :id => @photo.id)
+        end
+        should_set_the_flash_to "You cannot modify someone else's photos"
+        should_redirect_to("photo") { album_photo_url(@album, @photo) }
+      end
+    end
+    
   end
   
   

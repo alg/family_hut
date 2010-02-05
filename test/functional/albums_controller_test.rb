@@ -8,22 +8,18 @@ class AlbumsControllerTest < ActionController::TestCase
       should_redirect_to("login") { login_url }
     end
     
-    context "deleting someone's albums" do
-      setup do
-        log_in
-        delete :destroy, :id => (@album = Factory(:album)).id
-      end
-      should_set_the_flash_to "You cannot delete someone else's albums"
-      should_redirect_to("album") { album_url(@album) }
-    end
+    [ [ "delete", "delete", :destroy ],
+      [ "update", "post",   :update ] ].each do |verb, http_verb, action|
+      context "#{verb} someone's albums" do
+        setup do
+          @album = Factory(:album)
+          log_in
 
-    context "editing someone's albums" do
-      setup do
-        log_in
-        post :update, :id => (@album = Factory(:album)).id
+          send(http_verb, action, :id => @album.id)
+        end
+        should_set_the_flash_to "You cannot modify someone else's albums"
+        should_redirect_to("album") { album_url(@album) }
       end
-      should_set_the_flash_to "You cannot edit someone else's albums"
-      should_redirect_to("album") { album_url(@album) }
     end
   end
 
