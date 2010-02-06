@@ -1,6 +1,8 @@
 ru:
   family_hut:           Family Hut
   back:                 Назад
+  previous:             Предыдущая
+  next:                 Следущая
 
   datetime:
     ago:                    назад

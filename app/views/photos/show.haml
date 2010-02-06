@@ -1,7 +1,10 @@
 %h1
   = @photo.title
   == (#{link_to @photo.album.name, parent_path})
-  
+
+.navigation
+  = link_to_previous_photo
+  = link_to_next_photo
     
 .photo.full
   .image= image_tag @photo.image.url(:full)

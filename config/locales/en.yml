@@ -1,6 +1,8 @@
 en:
   family_hut:           Family Hut
   back:                 Back
+  previous:             Previous
+  next:                 Next
 
   layouts:
     header:
