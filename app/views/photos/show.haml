@@ -2,19 +2,17 @@
   = @photo.title
   == (#{link_to @photo.album.name, parent_path})
 
-.navigation
+.photo.full
   = link_to_previous_photo
   = link_to_next_photo
-    
-.photo.full
-  .image= image_tag @photo.image.url(:full)
-  .desc= @photo.desc
-  
-- if owns?(@photo)
-  %h2= t(".administration")
-
-  = link_to t(".edit"), edit_album_photo_path(@photo.album, @photo)
-  = link_to t(".delete"), [ @photo.album, @photo ], :method => :delete, :confirm => t(".delete_confirm")
+  .container
+    .image
+      = image_tag @photo.image.url(:full)
+      - if owns?(@photo)
+        .admin
+          = link_to t(".edit"),   edit_album_photo_path(@photo.album, @photo), :class => "edit"
+          = link_to t(".delete"), [ @photo.album, @photo ], :method => :delete, :class => "delete", :confirm => t(".delete_confirm")
+    .desc= @photo.desc
 
 %h2
   %a{ :name => "comments" }= t(".comments")

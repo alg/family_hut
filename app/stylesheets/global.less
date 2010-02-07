@@ -101,16 +101,26 @@ div.photo.full {
   float: none;
   margin: 0 0 2em 0;
 
-  .image {
-    float: none;
-    margin: 0;
-    width: auto;
-    text-align: center;
-    img {
-      border: 15px solid #eee;
+  .next { float: right; }
+  .prev { float: left; }
+  .container {
+    margin: 0 20px;
+    .image {
+      float: none;
+      margin: 0;
+      width: auto;
+      text-align: center;
+      img {
+        border: 15px solid #eee;
+      }
     }
   } 
 }
+
+a.edit   { color: green; }
+a.delete { color: red; }
+
+.admin a { margin-right: 1em; }
 
 .section_commands {
   margin: 0 0 1em 0;
@@ -240,10 +250,4 @@ form#ten_photos {
 
 #albums {
   overflow: hidden;
-}
-
-.navigation {
-  overflow: hidden;
-  .next { float: right; }
-  .prev { float: left; }
 }

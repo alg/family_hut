@@ -41,12 +41,8 @@ class PhotosController < InheritedResources::Base
     redirect_to parent_url
   end
   
-  def update
-    update! unless modifications_disallowed?("update")
-  end
-  
   def destroy
-    destroy! { parent_url } unless modifications_disallowed?("delete")
+    destroy! { parent_url }
   end
   
   private
