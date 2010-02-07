@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   config.gem "haml"
   config.gem "less"
   config.gem "sprockets"
-  config.gem "alg-paperclip", :lib => "paperclip"
+  config.gem "alg-paperclip", :version => ">=2.3.1.2", :lib => "paperclip"
   config.gem "erubis"
   config.gem "responders"
 

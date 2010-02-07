@@ -7,7 +7,7 @@
   = link_to_next_photo
   .container
     .image
-      = image_tag @photo.image.url(:full)
+      = paperclip_image_tag @photo.image, :full
       - if owns?(@photo)
         .admin
           = link_to t(".edit"),   edit_album_photo_path(@photo.album, @photo), :class => "edit"

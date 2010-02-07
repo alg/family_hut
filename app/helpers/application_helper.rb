@@ -12,5 +12,8 @@ module ApplicationHelper
       nil
     end == user
   end
-    
+
+  def paperclip_image_tag(image, style_name)
+    image_tag image.url(style_name), :width => image.width(style_name), :height => image.height(style_name)
+  end
 end
