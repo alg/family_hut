@@ -13,7 +13,7 @@ module AlbumNavigation
   private
   
   # Invalidates the cache of photo IDs.
-  def invalidate_photo_ids_cache
+  def invalidate_photo_ids_cache(photo = nil)
     @album_photo_ids = nil
     Rails.cache.delete(album_photo_ids_key)
   end
