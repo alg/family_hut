@@ -14,4 +14,4 @@
       = link_to t(".add_photo"),      new_album_photo_path(@album)
 
 - else
-  = render :partial => "photo", :collection => @album.photos.all(:order => Navigator::SORT_ORDER)
+  = render :partial => "photo", :collection => @album.photos.all
