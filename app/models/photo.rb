@@ -2,9 +2,8 @@ class Photo < ActiveRecord::Base
 
   IMAGE_OPTIONS = {
     :styles => { :thumb => "128x128#", :brief => "256x256#", :full => "900x600" },
-    :url    => "/assets/photos/:photo_id/:style.jpg",
-    :path   => ":rails_root/public/assets/photos/:photo_id/:style.jpg",
-    :tags   => { :photo_id => lambda { |attachment, style| attachment.instance.id } } }
+    :url    => "/assets/photos/:id/:style.jpg",
+    :path   => ":rails_root/public/assets/photos/:id/:style.jpg"
 
   belongs_to :album, :counter_cache => true
   has_attached_file :image, IMAGE_OPTIONS
