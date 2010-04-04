@@ -2,4 +2,4 @@
   .title &nbsp;
   .date  &nbsp;
   .image
-    = link_to t("albums.show.add_photo"), '#', :album_id => @album.id
+    = link_to t("albums.show.add_photo"), new_album_photo_path(@album), :album_id => @album.id
