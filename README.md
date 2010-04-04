@@ -13,6 +13,7 @@ Features
 * Members have named photo albums
 * Photo albums can contain any number of photos
 * Photos can be uploaded one at a time or in bulk (up to 10 at a time)
+* Easy photo uploads via AJAX without page reloads
 * Photos have titles and descriptions
 * Members can leave comments on photos
 * Activity log shows entries for album creation, photo uploads and comments
@@ -23,6 +24,8 @@ What's Planned
 
 So far I plan to add only:
 
+* Guest accounts with access to selected albums
+* Easy photo title updates
 * RSS feed for the activity log
 * Email notifications
 * Member mini-blogs
