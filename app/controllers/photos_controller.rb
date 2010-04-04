@@ -44,6 +44,21 @@ class PhotosController < InheritedResources::Base
     redirect_to parent_url
   end
   
+  def update_title
+    text   = params[:title]
+    @album = Album.find(params[:album_id])
+    @photo = @album.photos.find(params[:id])
+  
+    text = @photo.title
+    @photo.title = params[:title]
+    if @photo.save
+      puts '------------------ saved'
+      text = @photo.title
+    end
+  ensure
+    render :text => text, :layout => false
+  end
+  
   def destroy
     destroy! { parent_url }
   end

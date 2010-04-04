@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources         :users
   map.resources         :albums do |a|
     a.resources         :photos,
-                          :collection => { :new_ten => :get, :create_ten => :post },
+                          :collection => { :new_ten => :get, :create_ten => :post, :update_title => :post },
                           :member => { :create_comment => :post }
   end
 

@@ -23,7 +23,7 @@ Rails::Initializer.run do |config|
   config.gem "sprockets"
   config.gem "alg-paperclip", :version => ">=2.3.1.2", :lib => "paperclip"
   config.gem "erubis"
-  config.gem "responders", :version => "0.4.0"
+  config.gem "responders", :version => "0.4.3"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

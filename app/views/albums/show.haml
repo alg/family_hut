@@ -10,3 +10,16 @@
   - if owns?(@album)
     = render :partial => "upload_placeholder"
   = render :partial => "photo", :collection => @album.photos.all
+
+:javascript
+  $(function() {
+    $(".photo .title").editable("/albums/#{@album.id}/photos/update_title", { 
+      type: "text",
+      name: "title",
+      submit: "OK",
+      submitdata: function() {
+        var pid = $(this).parent().attr("pid");
+        return { album_id: #{@album.id}, id: pid };
+      }
+    });
+  });

@@ -51,6 +51,21 @@ class PhotosControllerTest < ActionController::TestCase
     end
   end
   
+  context "updating titles" do
+    setup do
+      @photo = Factory(:photo)
+      @album = @photo.album
+      @user  = @album.owner
+      log_in_as(@user)
+      
+      post :update_title, :album_id => @album.id, :id => @photo.id, :title => "New title"
+    end
+    should "update photo title" do
+      @photo.reload
+      assert_equal "New title", @photo.title
+    end
+  end
+  
   context "creating comments" do
     setup do
       @photo = Factory(:photo)
