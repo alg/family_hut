@@ -1,7 +1,7 @@
 class PhotosController < InheritedResources::Base
 
   before_filter :require_user
-  before_filter :require_ownership, :only => [ :edit, :update, :destroy, :new, :new_ten, :create, :create_ten ]
+  before_filter :require_ownership, :only => [ :edit, :update, :destroy, :new, :new_ten, :create, :create_ten, :update_title ]
   belongs_to :album
   
   def show
