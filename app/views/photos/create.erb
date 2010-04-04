@@ -1,0 +1,2 @@
+<%- pid, ph = params[:placeholder_id], @photo -%>
+<%= params[:callback] %>(<%= pid %>, <%= ph.id %>, '<%= ph.title %>', '<%= ph.created_at.to_s(:date_time) %>', '<%= ph.image.url(:brief) %>', '<%= album_photo_path(@album.id, ph.id) %>');

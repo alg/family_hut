@@ -14,5 +14,15 @@ class ActiveSupport::TestCase
   def log_in_as(user)
     activate_authlogic
     UserSession.create(user)
+    Time.zone = user.time_zone
   end
+end
+
+# Returns raw fixture data
+def fixture_data(filename)
+  open(RAILS_ROOT + "/test/fixtures/#{filename}").read
+end
+
+def fixture_file(filename)
+  File.open(RAILS_ROOT + "/test/fixtures/#{filename}", 'rb')
 end

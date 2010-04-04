@@ -11,7 +11,10 @@ class PhotosController < InheritedResources::Base
   end
   
   def create
-    create! { parent_url }
+    create! do |format|
+      format.js   { render 'create', :layout => false }
+      format.html { redirect_to parent_url }
+    end
   end
   
   def create_ten
@@ -23,7 +26,7 @@ class PhotosController < InheritedResources::Base
     
     redirect_to album_url(@album)
   end
-  
+
   def create_comment
     @album = Album.find(params[:album_id])
     @photo = @album.photos.find(params[:id])

@@ -23,16 +23,33 @@ class PhotosControllerTest < ActionController::TestCase
           @photo = Factory(:photo)
           @album = @photo.album
           log_in
-
+  
           send(http_verb, action, :album_id => @album.id, :id => @photo.id)
         end
         should_set_the_flash_to "You cannot modify someone else's photos"
         should_redirect_to("photo") { album_photo_url(@album, @photo) }
       end
     end
-    
   end
   
+  context "AJAX uploads of photos" do
+    setup do
+      @album = Factory(:album)
+      @user  = @album.owner
+      log_in_as(@user)
+
+      put :create,  :album_id       => @album.id,
+                    :photo          => { :image => fixture_file('images/50x50.gif') },
+                    :callback       => 'uploaded_image',
+                    :placeholder_id => 12,
+                    :format         => 'js'
+    end
+
+    should "render the JS callback" do
+      pid, ph = 12, assigns(:photo)
+      assert_equal "uploaded_image(#{pid}, #{ph.id}, 'Untitled', '#{Time.zone.now.to_s(:date_time)}', '#{ph.image.url(:brief)}', '#{album_photo_path(@album.id, ph.id)}');", @response.body.strip
+    end
+  end
   
   context "creating comments" do
     setup do

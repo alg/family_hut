@@ -2,16 +2,11 @@
 
 .commands
   - if owns?(@album)
-    = link_to t(".add_photo"),      new_album_photo_path(@album)
     = link_to t(".add_10_photos"),  new_ten_album_photos_path(@album)
     = link_to t(".edit"),           edit_album_path(@album)
     = link_to t(".delete"),         @album, :method => :delete, :confirm => t(".delete_confirm")
 
-- if @album.photos.empty?
-  .no-items
-    = t('.no_photos')
-    - if owns?(@album)
-      = link_to t(".add_photo"),      new_album_photo_path(@album)
-
-- else
+#photos
+  - if owns?(@album)
+    = render :partial => "upload_placeholder"
   = render :partial => "photo", :collection => @album.photos.all
