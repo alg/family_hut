@@ -34,8 +34,7 @@ Requirements
 ============
 
 * Rails 2.3.5 (other 2.x versions untested and may work)
-* Bundler 0.9+
-* All other gems vendored
+* See gems in config/environment.rb
 
 Installation
 ============
@@ -44,14 +43,10 @@ Installation
 
 		git clone http://github.com/alg/family_hut.git
 
-2. Bundle gems:
-
-		bundle install
-		
-3. Copy the database config from `config/database.yml.sample` to `config/database.yml`
+2. Copy the database config from `config/database.yml.sample` to `config/database.yml`
 	 and update as appropriate.
 
-4. Setup the app:
+3. Setup the app:
 
 		rake db:setup
 
