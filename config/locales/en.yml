@@ -3,6 +3,7 @@ en:
   back:                 Back
   previous:             Previous
   next:                 Next
+  send:                 Send
 
   layouts:
     header:
@@ -64,6 +65,13 @@ en:
       my_albums:        My Albums
       no_albums:        You don't have own albums yet
       new_album:        New Album
+      journal:          Journal
+    post:
+      delete:           Delete
+      confirm:          Are you sure to delete this post?
+    post_form:
+      cancel:           Oh, nevermind
+      whats_new:        What's new?
     index:
       header:           People
       invite:           Invite

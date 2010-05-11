@@ -57,11 +57,24 @@ div.album {
   .name {
     margin: 0.5em 0 0 0;
     text-align: center;
+    height: 1em;
+    overflow: hidden;
     a {
       color: #666;
       font-size: 90%;
       text-decoration: none;
     }
+  }
+}
+
+div.album.tiny {
+  width: 48px;
+  .thumbnail {
+    width: 48px;
+    height: 48px;
+  }
+  .name {
+    font-size: 75%;
   }
 }
 
@@ -249,21 +262,67 @@ form#ten_photos {
   }
 }
 
-#news {
+#sidebar {
   float: right;
   width: 384px;
   margin-left: 16px;
-  
+}
+
+#news {
+  .event { font-size: 75%; }
   .old {
     opacity: 0.25;
   }
 }
 
-#news h2, #albums h2 {
+#news h2, #albums h2, #posts h2 {
   margin-top: 0;
   clear: none;
 }
 
-#albums {
+#albums, #posts {
   overflow: hidden;
 }
+
+#new_post {
+  overflow: hidden;
+}
+#post_body {
+  height: 100px;
+  width: 568px;
+  padding: 5px;
+  font-family: georgia, times;
+  margin-bottom: 10px;
+}
+
+#post_submit {
+  float: right;
+}
+
+h2 .commands {
+  font-size: 50%;
+  margin: 0;
+  float: right;
+  padding-top: 7px;
+  line-height: 20px;
+  a {
+    margin: 0 0 0 1em;
+  }
+}
+
+.post {
+  margin: 1em 0 2em;
+  overflow: hidden;
+  .meta {
+    overflow: hidden;
+    font-size: 85%;
+  }
+  
+  strong { font-weight: bold; }
+  em { font-style: italic; }
+}
+
+.action               { display: block; margin: 2px 2px 2px 0; border: 1px solid #fff; padding: 2px; width: 16px; height: 16px; float: left; }
+.action:hover         { border-color: #88a; background: #ddf; }
+.icon_photo img       { background: url(/images/iconImage.png) transparent 0 0 no-repeat; }
+.icon_photo:hover img { background-image: url(/images/iconImage-hover.png); }

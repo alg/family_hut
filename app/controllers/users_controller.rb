@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_filter :require_user,    :only => [ :dashboard, :index, :show, :edit, :update, :destroy, :new, :create ]
+  before_filter :require_user
   
   def dashboard
     @albums = current_user.albums
     @events = Log.all(:limit => 10, :order => "created_at desc", :include => :user)
+    @posts  = Post.paginate(:page => params[:page], :per_page => params[:per_page] || 10, :order => "created_at desc")
   end
   
   def index
@@ -48,4 +49,22 @@ class UsersController < ApplicationController
     flash[:notice] = "Your account has been cancelled"
     redirect_to login_url
   end
+  
+  def new_post
+    current_user.posts.create(params[:post])
+    redirect_to dashboard_path
+  end
+  
+  def delete_post
+    post = current_user.posts.find(params[:id])
+    if post.can_be_deleted?(current_user)
+      post.destroy
+      flash[:notice] = "Deleted the post"
+    else
+      flash[:error] = "It's too late to delete this post"
+    end
+  ensure
+    redirect_to dashboard_path
+  end
+  
 end

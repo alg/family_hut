@@ -16,6 +16,7 @@ gem 'alg-paperclip', '>=2.3.1.2', :require => 'paperclip'
 gem 'less'
 gem 'responders'
 gem 'erubis'
+gem 'RedCloth'
  
 gem 'shoulda',      :group => :test
 gem 'factory_girl', :group => :test

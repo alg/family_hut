@@ -3,6 +3,7 @@ ru:
   back:                 Назад
   previous:             Предыдущая
   next:                 Следущая
+  send:                 Отправить
 
   datetime:
     ago:                    назад
@@ -79,6 +80,13 @@ ru:
       no_albums:        У вас нет еще своих альбомов
       my_albums:        Мои альбомы
       new_album:        Новый альбом
+      journal:          Журнал
+    post:
+      delete:           Удалить
+      confirm:          Действительно удалить это сообщение?
+    post_form:
+      cancel:           Ой, нет
+      whats_new:        Что нового?
     index:
       header:           Люди
       invite:           Пригласить

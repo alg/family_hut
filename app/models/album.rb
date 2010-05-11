@@ -19,8 +19,8 @@ class Album < ActiveRecord::Base
     self.cover_photo_id ? "" : nil
   end
   
-  def thumbnail_url
-    self.image && self.image.url(:thumb)
+  def thumbnail_url(style = :thumb)
+    self.image && self.image.url(style)
   end
 
 end

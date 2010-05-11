@@ -1,0 +1,141 @@
+--- 
+dependencies: 
+  faker: 
+    group: 
+    - :test
+    version: ">= 0"
+  rails: 
+    group: 
+    - :default
+    version: = 2.3.5
+  sprockets: 
+    group: 
+    - :default
+    version: ">= 0"
+  authlogic: 
+    group: 
+    - :default
+    version: ">= 0"
+  haml: 
+    group: 
+    - :default
+    version: ">= 0"
+  mysql: 
+    group: 
+    - :default
+    version: ">= 0"
+  alg-paperclip: 
+    group: 
+    - :default
+    version: ">= 2.3.1.2"
+    require: 
+    - paperclip
+  shoulda: 
+    group: 
+    - :test
+    version: ">= 0"
+  tmail: 
+    group: 
+    - :default
+    version: ">= 0"
+  formtastic: 
+    group: 
+    - :default
+    version: ">= 0"
+  erubis: 
+    group: 
+    - :default
+    version: ">= 0"
+  will_paginate: 
+    group: 
+    - :default
+    version: ">= 0"
+  factory_girl: 
+    group: 
+    - :test
+    version: ">= 0"
+  less: 
+    group: 
+    - :default
+    version: ">= 0"
+  i18n: 
+    group: 
+    - :default
+    version: ">= 0"
+  responders: 
+    group: 
+    - :default
+    version: ">= 0"
+  builder: 
+    group: 
+    - :default
+    version: ">= 0"
+  RedCloth: 
+    group: 
+    - :default
+    version: ">= 0"
+specs: 
+- rake: 
+    version: 0.8.7
+- RedCloth: 
+    version: 4.2.3
+- abstract: 
+    version: 1.0.0
+- activesupport: 
+    version: 2.3.5
+- rack: 
+    version: 1.0.1
+- actionpack: 
+    version: 2.3.5
+- actionmailer: 
+    version: 2.3.5
+- activerecord: 
+    version: 2.3.5
+- activeresource: 
+    version: 2.3.5
+- alg-paperclip: 
+    version: 2.3.1.2
+- authlogic: 
+    version: 2.1.3
+- builder: 
+    version: 2.1.2
+- erubis: 
+    version: 2.6.5
+- factory_girl: 
+    version: 1.2.4
+- faker: 
+    version: 0.3.1
+- formtastic: 
+    version: 0.9.8
+- haml: 
+    version: 3.0.1
+- i18n: 
+    version: 0.3.7
+- mutter: 
+    version: 0.5.3
+- polyglot: 
+    version: 0.3.1
+- treetop: 
+    version: 1.4.5
+- less: 
+    version: 1.2.21
+- mysql: 
+    version: 2.8.1
+- rails: 
+    version: 2.3.5
+- responders: 
+    version: 0.6.0
+- shoulda: 
+    version: 2.10.3
+- sprockets: 
+    version: 1.0.2
+- tmail: 
+    version: 1.2.7.1
+- will_paginate: 
+    version: 2.3.12
+hash: 3c9ca4344686665829d302a74430b66638d28974
+sources: 
+- Rubygems: 
+    uri: http://gemcutter.org
+- Rubygems: 
+    uri: http://gems.github.com

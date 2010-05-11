@@ -32,3 +32,8 @@ Factory.define :comment do |f|
   f.comment               "test"
   f.comment_type          "comment"
 end
+
+Factory.define :post do |f|
+  f.association           :user
+  f.body                  'test'
+end

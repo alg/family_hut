@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100203031108) do
+ActiveRecord::Schema.define(:version => 20100429221239) do
 
   create_table "albums", :force => true do |t|
     t.string   "name",                          :null => false
@@ -61,6 +61,21 @@ ActiveRecord::Schema.define(:version => 20100203031108) do
   end
 
   add_index "photos", ["album_id"], :name => "index_photos_on_album_id"
+
+  create_table "photos_posts", :force => true do |t|
+    t.integer "photo_id", :null => false
+    t.integer "post_id",  :null => false
+  end
+
+  add_index "photos_posts", ["photo_id"], :name => "index_photos_posts_on_photo_id"
+  add_index "photos_posts", ["post_id"], :name => "index_photos_posts_on_post_id"
+
+  create_table "posts", :force => true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                                   :null => false
