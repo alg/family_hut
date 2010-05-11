@@ -1,4 +1,4 @@
 - style ||= :thumb
 .album{ :class => style }
-  .thumbnail= link_to image_tag(album.thumbnail_url(style)), album
+  .thumbnail= link_to image_tag(album.thumbnail_url(style), :width => 48, :height => 48), album
   .name= link_to album.name, album
