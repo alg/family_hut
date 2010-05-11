@@ -18,6 +18,7 @@ Features
 * Members can leave comments on photos
 * Activity log shows entries for album creation, photo uploads and comments
 * Time zones and i18n (currently English and Russian) are supported
+* Collective blog with a feature to delete your own posts that are up to one hour old
 
 What's Planned
 ==============
@@ -25,10 +26,9 @@ What's Planned
 So far I plan to add only:
 
 * Guest accounts with access to selected albums
-* Easy photo title updates
 * RSS feed for the activity log
 * Email notifications
-* Member mini-blogs
+* Guest accounts
 
 Requirements
 ============
