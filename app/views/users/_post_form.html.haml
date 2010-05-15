@@ -1,8 +1,7 @@
-= link_to_function t('.whats_new'), '$("#new_post").show("fast"); $(this).hide();', :id => 'new_post_link'
-
-#new_post{ :style => "display: none" }
-  - form_for :post, :url => new_post_path do |f|
+#new_post.box
+  = link_to_function t('.whats_new'), '$("#new_post form").show("fast"); $(this).hide();', :id => 'new_post_link'
+  - form_for :post, :url => new_post_path, :html => { :style => "display: none" } do |f|
     = f.text_area :body
     .commands
-      = link_to_function t('.cancel'), '$("#new_post").hide("fast"); $("#new_post_link").show();'
+      = link_to_function t('.cancel'), '$("#new_post form").hide("fast"); $("#new_post_link").show();'
       = f.submit t('send')
