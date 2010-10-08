@@ -1,5 +1,7 @@
 class Album < ActiveRecord::Base
 
+  DEFAULT_IMAGE_URL = "/images/empty_album.gif"
+  
   include AlbumNavigation
 
   belongs_to  :owner, :class_name => "User", :foreign_key => "user_id"
@@ -9,9 +11,7 @@ class Album < ActiveRecord::Base
                 :after_remove => :invalidate_photo_ids_cache
 
   # We use this to access photo image, not saving our own images
-  has_attached_file :image, Photo::IMAGE_OPTIONS.merge({
-    :default_url  => "/images/empty_album.gif", 
-    :tags         => { :photo_id => lambda { |attachment, style| attachment.instance.cover_photo_id } }})
+  has_attached_file :image, Photo::IMAGE_OPTIONS.merge(:default_url => DEFAULT_IMAGE_URL)
   
   validates_presence_of :name
     
@@ -20,7 +20,7 @@ class Album < ActiveRecord::Base
   end
   
   def thumbnail_url(style = :thumb)
-    self.image && self.image.url(style)
+    self.image.url(style)
   end
 
 end

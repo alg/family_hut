@@ -16,6 +16,10 @@ Factory.define :album do |f|
   f.association           :owner, :factory => :user
 end
 
+Factory.define :album_with_image, :parent => :album do |f|
+  f.association           :cover_photo, :factory => :photo
+end
+
 Factory.define :photo do |f|
   f.title                 { Factory.next(:name) }
   f.association           :album

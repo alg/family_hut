@@ -13,8 +13,10 @@ gem 'less'
 gem 'RedCloth'
 
 group :test do 
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'factory_girl'
+  gem 'rspec-rails', "~> 2.0.0.beta.22"
+  gem 'shoulda'
+  gem 'mocha'
+  gem 'factory_girl_rails'
   gem 'faker'
+  gem 'timecop'
 end

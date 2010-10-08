@@ -6,8 +6,18 @@ class Post < ActiveRecord::Base
 
   acts_as_textiled :body
 
-  def can_be_deleted?(user = nil)
-    self.user == user && (Time.now - self.created_at) < MAX_DELETABLE_PERIOD.minutes
+  def removable_by?(user = nil)
+    owned_by?(user) && created_not_too_long_ago?
+  end
+
+  private
+  
+  def owned_by?(user)
+    self.user == user
+  end
+  
+  def created_not_too_long_ago?
+    (Time.now - self.created_at) < MAX_DELETABLE_PERIOD.minutes
   end
   
 end

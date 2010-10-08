@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   
   def delete_post
     post = current_user.posts.find(params[:id])
-    if post.can_be_deleted?(current_user)
+    if post.removable_by?(current_user)
       post.destroy
       flash[:notice] = "Deleted the post"
     else
