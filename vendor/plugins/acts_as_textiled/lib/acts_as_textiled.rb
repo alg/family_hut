@@ -1,9 +1,6 @@
 module Err 
   module Acts #:nodoc: all
     module Textiled
-      include ActionView::Helpers::TagHelper
-      include ActionView::Helpers::TextHelper
-
       def self.included(klass)
         klass.extend ClassMethods
       end
@@ -24,27 +21,7 @@ module Err
               type = type.first
 
               if type.nil? && self[attribute]
-                t = textiled[attribute.to_s]
-                if t.nil?
-                  str = self[attribute]
-
-                  # suck out script stuff
-                  str.gsub!(/\<(java)?script\>(.*?)\<\/(java)?script\>/i) do |match|
-                    CGI.escapeHTML(match)
-                  end
-
-                  str = auto_link(str, :all) do |txt|
-                    txt.size < 55 ? txt : truncate(txt, :length => 50)
-                  end
-
-                  str = RedCloth.new(str, Array(ruled[attribute])).to_html
-
-                  # preserve whitespace for haml
-                  str = str.chomp("\n").gsub(/\n/, '&#x000A;').gsub(/\r/, '')
-
-                  textiled[attribute.to_s] = t = str
-                end
-                t
+                textiled[attribute.to_s] ||= RedCloth.new(self[attribute], Array(ruled[attribute])).to_html 
               elsif type.nil? && self[attribute].nil?
                 nil
               elsif type_options.include?(type.to_s)
@@ -85,7 +62,7 @@ module Err
           self.class.textiled_attributes.each { |attr| __send__(attr) }
         end
 
-        def reload(options = nil)
+        def reload
           textiled.clear
           super
         end
@@ -106,8 +83,7 @@ module Err
         end
 
         def redcloth_glyphs
-           [[ '&#x000A;', "\n"],
-            [ '&#8217;', "'" ], 
+           [[ '&#8217;', "'" ], 
             [ '&#8216;', "'" ],
             [ '&lt;', '<' ], 
             [ '&gt;', '>' ], 

@@ -5,7 +5,6 @@ begin
   require 'yaml'
   require 'mocha'
   require 'active_support'
-  require 'action_controller'
   require 'test/spec'
   require 'RedCloth'
 rescue LoadError

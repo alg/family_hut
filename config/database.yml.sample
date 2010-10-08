@@ -1,7 +1,8 @@
 common: &common
-  adapter: mysql
+  adapter: mysql2
   username: root
   password:
+  encoding: latin1
 
 development:
   <<: *common

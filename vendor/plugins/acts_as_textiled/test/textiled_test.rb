@@ -102,7 +102,7 @@ context "An ActiveRecord instance acting as textiled" do
   specify "should enhance text attributes" do
     story = Story.find(3)
 
-    body_html    = %[<p><em>Textile</em> is useful because it makes text <em>slightly</em> easier to <strong>read</strong>.</p>&#x000A;&#x000A;&#x000A;\t<p>If only it were so <strong>easy</strong> to use in every programming language.  In Rails,&#x000A;with the help of <a href=\"http://google.com/search?q=acts_as_textiled\">acts_as_textiled</a>,&#x000A;it&#8217;s way easy.  Thanks in no small part to <span style=\"color:red;\">RedCloth</span>, of course.</p>]
+    body_html    = %[<p><em>Textile</em> is useful because it makes text <em>slightly</em> easier to <strong>read</strong>.</p>\n\n\n\t<p>If only it were so <strong>easy</strong> to use in every programming language.  In Rails,\nwith the help of <a href="http://google.com/search?q=acts_as_textiled">acts_as_textiled</a>,\nit&#8217;s way easy.  Thanks in no small part to <span style="color:red;">RedCloth</span>, of course.</p>]
     body_textile = %[_Textile_ is useful because it makes text _slightly_ easier to *read*.\n\nIf only it were so *easy* to use in every programming language.  In Rails,\nwith the help of "acts_as_textiled":http://google.com/search?q=acts_as_textiled,\nit's way easy.  Thanks in no small part to %{color:red}RedCloth%, of course.\n]
     body_plain   = %[Textile is useful because it makes text slightly easier to read.\n\n\n\tIf only it were so easy to use in every programming language.  In Rails,\nwith the help of acts_as_textiled,\nit's way easy.  Thanks in no small part to RedCloth, of course.]
 
@@ -114,7 +114,7 @@ context "An ActiveRecord instance acting as textiled" do
   specify "should handle character conversions" do
     story = Story.find(4)
 
-    body_html  = "<p>Is Textile&#8482; the wave of the future?  What about acts_as_textiled&#169;?  It&#8217;s&#x000A;doubtful.  Why does Textile&#8482; smell like <em>Python</em>?  Can we do anything to&#x000A;fix that?  No?  Well, I guess there are worse smells &#8211; like Ruby.  jk.</p>&#x000A;&#x000A;&#x000A;\t<p>But seriously, ice &gt; water and water &lt; rain.  But&#8230;nevermind.  1&#215;1?  1.</p>&#x000A;&#x000A;&#x000A;\t<p>&#8220;You&#8217;re a good kid,&#8221; he said.  &#8220;Keep it up.&#8221;</p>"
+    body_html  = "<p>Is Textile&#8482; the wave of the future?  What about acts_as_textiled&#169;?  It&#8217;s\ndoubtful.  Why does Textile&#8482; smell like <em>Python</em>?  Can we do anything to\nfix that?  No?  Well, I guess there are worse smells &#8211; like Ruby.  jk.</p>\n\n\n\t<p>But seriously, ice &gt; water and water &lt; rain.  But&#8230;nevermind.  1&#215;1?  1.</p>\n\n\n\t<p>&#8220;You&#8217;re a good kid,&#8221; he said.  &#8220;Keep it up.&#8221;</p>"
     body_plain = %[Is Textile(TM) the wave of the future?  What about acts_as_textiled(C)?  It's\ndoubtful.  Why does Textile(TM) smell like Python?  Can we do anything to\nfix that?  No?  Well, I guess there are worse smells-like Ruby.  jk.\n\n\n\tBut seriously, ice > water and water < rain.  But...nevermind.  1x1?  1.\n\n\n\t"You're a good kid," he said.  "Keep it up."]
 
     story.body.should.equal body_html 

@@ -1,8 +1,8 @@
 %h1 Login
 
-- semantic_form_for @user_session, :url => user_session_path do |f|
+= semantic_form_for @user_session, :url => user_session_path do |f|
   = f.input :login
   = f.input :password, :as => :password
   = f.input :remember_me, :as => :boolean
-  - f.buttons do
+  = f.buttons do
     = f.commit_button "Log in"

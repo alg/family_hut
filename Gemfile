@@ -1,23 +1,20 @@
 source :gemcutter
 source "http://gems.github.com"
 
-gem "builder"
-gem "i18n"
-gem "tmail"
-
-gem "rails",          '2.3.5'
-gem 'will_paginate'
+gem 'rails', '3.0.0'
+gem 'will_paginate', "~> 3.0.pre2"
+gem 'inherited_resources', '~> 1.1.2'
 gem 'authlogic'
 gem 'haml'
 gem 'formtastic'
-gem 'mysql'
-gem 'sprockets'
-gem 'alg-paperclip', '>=2.3.1.2', :require => 'paperclip'
+gem 'mysql2'
+gem 'paperclip'
 gem 'less'
-gem 'responders'
-gem 'erubis'
 gem 'RedCloth'
- 
-gem 'shoulda',      :group => :test
-gem 'factory_girl', :group => :test
-gem 'faker',        :group => :test
+
+group :test do 
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'faker'
+end

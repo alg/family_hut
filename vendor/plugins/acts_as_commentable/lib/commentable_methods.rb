@@ -1,5 +1,4 @@
-require 'activerecord'
-require 'optparse'
+require 'active_record'
 
 # ActsAsCommentable
 module Juixe
@@ -7,39 +6,48 @@ module Juixe
     module Commentable #:nodoc:
 
       def self.included(base)
-        base.extend ClassMethods
+        base.extend ClassMethods  
       end
 
       module ClassMethods
-        def acts_as_commentable(association_name = nil)
-          association_name = :comments if association_name.nil?
-          raise OptionParser::InvalidArgument, :association_name if association_name.blank?
-
-          association_name = association_name.to_s
-          has_many association_name, :as => :commentable, :dependent => :destroy, :class_name => 'Comment'
-
-          self.class_eval do
-            # Helper method to sort comments by date
-            define_method "#{association_name}_ordered_by_submitted" do
-              self.send(association_name).recent
-            end
-
-            # Helper method that defaults the submitted time.
-            define_method "add_#{association_name.singularize}" do |comment|
-              self.send(association_name) << comment
-            end
-          end
+        def acts_as_commentable(options={})
+          has_many :comments, {:as => :commentable, :dependent => :destroy}.merge(options)
+          include Juixe::Acts::Commentable::InstanceMethods
+          extend Juixe::Acts::Commentable::SingletonMethods
         end
-
-        def div_id
-          self.class.name.underscore + "_" + id.to_s + "_comment"
-        end
-
-        def reply_function
-          "reply_" + div_id
-        end
-
       end
+      
+      # This module contains class methods
+      module SingletonMethods
+        # Helper method to lookup for comments for a given object.
+        # This method is equivalent to obj.comments.
+        def find_comments_for(obj)
+          commentable = ActiveRecord::Base.send(:class_name_of_active_record_descendant, self).to_s
+          Comment.find_comments_for_commentable(commentable, obj.id)
+        end
+        
+        # Helper class method to lookup comments for
+        # the mixin commentable type written by a given user.  
+        # This method is NOT equivalent to Comment.find_comments_for_user
+        def find_comments_by_user(user) 
+          commentable = ActiveRecord::Base.send(:class_name_of_active_record_descendant, self).to_s
+          Comment.where(["user_id = ? and commentable_type = ?", user.id, commentable]).order("created_at DESC")
+        end
+      end
+      
+      # This module contains instance methods
+      module InstanceMethods
+        # Helper method to sort comments by date
+        def comments_ordered_by_submitted
+          Comment.find_comments_for_commentable(self.class.name, id)
+        end
+        
+        # Helper method that defaults the submitted time.
+        def add_comment(comment)
+          comments << comment
+        end
+      end
+      
     end
   end
 end

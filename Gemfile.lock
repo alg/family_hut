@@ -1,141 +1,113 @@
---- 
-dependencies: 
-  faker: 
-    group: 
-    - :test
-    version: ">= 0"
-  rails: 
-    group: 
-    - :default
-    version: = 2.3.5
-  sprockets: 
-    group: 
-    - :default
-    version: ">= 0"
-  authlogic: 
-    group: 
-    - :default
-    version: ">= 0"
-  haml: 
-    group: 
-    - :default
-    version: ">= 0"
-  mysql: 
-    group: 
-    - :default
-    version: ">= 0"
-  alg-paperclip: 
-    group: 
-    - :default
-    version: ">= 2.3.1.2"
-    require: 
-    - paperclip
-  shoulda: 
-    group: 
-    - :test
-    version: ">= 0"
-  tmail: 
-    group: 
-    - :default
-    version: ">= 0"
-  formtastic: 
-    group: 
-    - :default
-    version: ">= 0"
-  erubis: 
-    group: 
-    - :default
-    version: ">= 0"
-  will_paginate: 
-    group: 
-    - :default
-    version: ">= 0"
-  factory_girl: 
-    group: 
-    - :test
-    version: ">= 0"
-  less: 
-    group: 
-    - :default
-    version: ">= 0"
-  i18n: 
-    group: 
-    - :default
-    version: ">= 0"
-  responders: 
-    group: 
-    - :default
-    version: ">= 0"
-  builder: 
-    group: 
-    - :default
-    version: ">= 0"
-  RedCloth: 
-    group: 
-    - :default
-    version: ">= 0"
-specs: 
-- rake: 
-    version: 0.8.7
-- RedCloth: 
-    version: 4.2.3
-- abstract: 
-    version: 1.0.0
-- activesupport: 
-    version: 2.3.5
-- rack: 
-    version: 1.0.1
-- actionpack: 
-    version: 2.3.5
-- actionmailer: 
-    version: 2.3.5
-- activerecord: 
-    version: 2.3.5
-- activeresource: 
-    version: 2.3.5
-- alg-paperclip: 
-    version: 2.3.1.2
-- authlogic: 
-    version: 2.1.3
-- builder: 
-    version: 2.1.2
-- erubis: 
-    version: 2.6.5
-- factory_girl: 
-    version: 1.2.4
-- faker: 
-    version: 0.3.1
-- formtastic: 
-    version: 0.9.8
-- haml: 
-    version: 3.0.1
-- i18n: 
-    version: 0.3.7
-- mutter: 
-    version: 0.5.3
-- polyglot: 
-    version: 0.3.1
-- treetop: 
-    version: 1.4.5
-- less: 
-    version: 1.2.21
-- mysql: 
-    version: 2.8.1
-- rails: 
-    version: 2.3.5
-- responders: 
-    version: 0.6.0
-- shoulda: 
-    version: 2.10.3
-- sprockets: 
-    version: 1.0.2
-- tmail: 
-    version: 1.2.7.1
-- will_paginate: 
-    version: 2.3.12
-hash: 3c9ca4344686665829d302a74430b66638d28974
-sources: 
-- Rubygems: 
-    uri: http://gemcutter.org
-- Rubygems: 
-    uri: http://gems.github.com
+GEM
+  remote: http://rubygems.org/
+  remote: http://gems.github.com/
+  specs:
+    RedCloth (4.2.3)
+    abstract (1.0.0)
+    actionmailer (3.0.0)
+      actionpack (= 3.0.0)
+      mail (~> 2.2.5)
+    actionpack (3.0.0)
+      activemodel (= 3.0.0)
+      activesupport (= 3.0.0)
+      builder (~> 2.1.2)
+      erubis (~> 2.6.6)
+      i18n (~> 0.4.1)
+      rack (~> 1.2.1)
+      rack-mount (~> 0.6.12)
+      rack-test (~> 0.5.4)
+      tzinfo (~> 0.3.23)
+    activemodel (3.0.0)
+      activesupport (= 3.0.0)
+      builder (~> 2.1.2)
+      i18n (~> 0.4.1)
+    activerecord (3.0.0)
+      activemodel (= 3.0.0)
+      activesupport (= 3.0.0)
+      arel (~> 1.0.0)
+      tzinfo (~> 0.3.23)
+    activeresource (3.0.0)
+      activemodel (= 3.0.0)
+      activesupport (= 3.0.0)
+    activesupport (3.0.0)
+    arel (1.0.1)
+      activesupport (~> 3.0.0)
+    authlogic (2.1.6)
+      activesupport
+    builder (2.1.2)
+    erubis (2.6.6)
+      abstract (>= 1.0.0)
+    factory_girl (1.3.2)
+    faker (0.3.1)
+    formtastic (1.1.0)
+      actionpack (>= 2.3.0)
+      activesupport (>= 2.3.0)
+      i18n (>= 0.4.0)
+    haml (3.0.21)
+    has_scope (0.5.0)
+    i18n (0.4.1)
+    inherited_resources (1.1.2)
+      has_scope (~> 0.5.0)
+      responders (~> 0.6.0)
+    less (1.2.21)
+      mutter (>= 0.4.2)
+      treetop (>= 1.4.2)
+    mail (2.2.7)
+      activesupport (>= 2.3.6)
+      mime-types
+      treetop (>= 1.4.5)
+    mime-types (1.16)
+    mutter (0.5.3)
+    mysql2 (0.2.4)
+    paperclip (2.3.4)
+      activerecord
+      activesupport
+    polyglot (0.3.1)
+    rack (1.2.1)
+    rack-mount (0.6.13)
+      rack (>= 1.0.0)
+    rack-test (0.5.6)
+      rack (>= 1.0)
+    rails (3.0.0)
+      actionmailer (= 3.0.0)
+      actionpack (= 3.0.0)
+      activerecord (= 3.0.0)
+      activeresource (= 3.0.0)
+      activesupport (= 3.0.0)
+      bundler (~> 1.0.0)
+      railties (= 3.0.0)
+    railties (3.0.0)
+      actionpack (= 3.0.0)
+      activesupport (= 3.0.0)
+      rake (>= 0.8.4)
+      thor (~> 0.14.0)
+    rake (0.8.7)
+    responders (0.6.2)
+    rspec (1.3.0)
+    rspec-rails (1.3.2)
+      rack (>= 1.0.0)
+      rspec (>= 1.3.0)
+    thor (0.14.3)
+    treetop (1.4.8)
+      polyglot (>= 0.3.1)
+    tzinfo (0.3.23)
+    will_paginate (3.0.pre2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  RedCloth
+  authlogic
+  factory_girl
+  faker
+  formtastic
+  haml
+  inherited_resources (~> 1.1.2)
+  less
+  mysql2
+  paperclip
+  rails (= 3.0.0)
+  rspec
+  rspec-rails
+  will_paginate (~> 3.0.pre2)
