@@ -4,7 +4,7 @@
   .meta
     %span.date=l post.created_at, :format => :long
     \-
-    %span.name= h post.user.name
+    %span.name= post.user.name
     - if post.can_be_deleted?(current_user)
       \-
       %span.delete= link_to t(".delete"), delete_post_path(post.id), :confirm => t(".confirm")
