@@ -14,39 +14,21 @@ set :use_sudo,              false
 
 set :deploy_via,            :export
 
+task :bundle_gems, :roles => :app do
+  run "mkdir -p #{shared_path}/bundle && ln -s #{shared_path}/bundle #{release_path}/vendor/bundle"
+  run "cd #{latest_release}; bundle install --deployment --without development test"
+end
+
 # Create uploads directory and link
-after "deploy:symlink" do
-  run "cp #{shared_path}/config/database.yml #{current_path}/config/database.yml"
-  run "cp #{shared_path}/config/production_custom.rb #{current_path}/config/environments/production_custom.rb"
-  run "ln -s #{shared_path}/assets #{current_path}/public/assets"
+task :deploy_shared, :roles => :app do
+  run "cp #{shared_path}/config/database.yml #{latest_release}/config/database.yml"
+  run "cp #{shared_path}/config/production_custom.rb #{latest_release}/config/environments/production_custom.rb"
+  run "ln -s #{shared_path}/assets #{latest_release}/public/assets"
 end
 
-namespace :bundler do
-  task :install do
-    run "gem install bundler"
-  end
-
-  task :symlink_vendor do
-    shared_gems   = "#{shared_path}/vendor/bundler_gems"
-    release_gems  = "#{release_path}/vendor/bundler_gems"
-
-    run "mkdir -p #{release_gems}"
-
-    %w(gems specifications).each do |sub_dir|
-      shared_sub_dir  = "#{shared_gems}/#{sub_dir}"
-      release_sub_dir = "#{release_gems}/ruby/1.8/#{sub_dir}"
-      run "mkdir -p #{shared_sub_dir} && ln -s #{shared_sub_dir} #{release_sub_dir}"
-    end
-  end
-
-  task :bundle_new_release do
-    bundler.symlink_vendor
-    run "cd #{release_path} && bundle install"
-  end
-end
-
-# hook into capistrano's deploy task
-after 'deploy:update_code', 'bundler:bundle_new_release'
+after "deploy:update_code", "deploy_shared"
+after "deploy:update_code", "bundle_gems"
+after "deploy:restart", "deploy:cleanup"
 
 # Passenger tasks
 namespace :deploy do
