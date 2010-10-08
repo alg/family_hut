@@ -28,13 +28,11 @@ So far I plan to add only:
 * Guest accounts with access to selected albums
 * RSS feed for the activity log
 * Email notifications
-* Guest accounts
 
 Requirements
 ============
 
-* Rails 2.3.5 (other 2.x versions untested and may work)
-* See gems in config/environment.rb
+* Rails 3
 
 Installation
 ============
