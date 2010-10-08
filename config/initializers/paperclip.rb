@@ -1,3 +1,4 @@
 Paperclip.interpolates :photo_id do |attachment, style|
-  attachment.instance.id
+  i = attachment.instance
+  i.is_a?(Album) ? i.cover_photo_id : i.id
 end

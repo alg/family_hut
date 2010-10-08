@@ -2,7 +2,7 @@
   .avatar= link_to image_tag(post.user.avatar.url(:small)), post.user
   = raw post.body
   .meta
-    %span.date= h post.created_at.to_s(:date_time)
+    %span.date=l post.created_at, :format => :long
     \-
     %span.name= h post.user.name
     - if post.can_be_deleted?(current_user)

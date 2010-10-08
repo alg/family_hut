@@ -2,5 +2,5 @@
   .avatar= link_to image_tag(event.user.avatar.url(:small)), event.user
   .details
     .name= link_to event.user.name, event.user
-    .date= event.created_at.to_s(:date_time)
+    .date=l event.created_at, :format => :long
     .message== #{raw t(event.activity, event.data)}

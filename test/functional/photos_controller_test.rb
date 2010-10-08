@@ -47,7 +47,7 @@ class PhotosControllerTest < ActionController::TestCase
 
     should "render the JS callback" do
       pid, ph = 12, assigns(:photo)
-      assert_equal "uploaded_image(#{pid}, #{ph.id}, 'Untitled', '#{Time.zone.now.to_s(:date_time)}', '#{ph.image.url(:brief)}', '#{album_photo_path(@album.id, ph.id)}');", @response.body.strip
+      assert_equal "uploaded_image(#{pid}, #{ph.id}, 'Untitled', '#{l Time.zone.now, :format => :long}', '#{ph.image.url(:brief)}', '#{album_photo_path(@album.id, ph.id)}');", @response.body.strip
     end
   end
   

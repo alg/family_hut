@@ -2,5 +2,5 @@
   .avatar= image_tag(comment.user.avatar.url(:small))
   .details
     .name= comment.user.name
-    .date= comment.created_at.to_s(:date_time)
+    .date=l comment.created_at, :format => :long
     .body= comment.comment
