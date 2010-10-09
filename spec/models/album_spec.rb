@@ -12,13 +12,8 @@ describe Album do
     let(:album) { Album.new }
     let(:album_with_image) { Factory(:album_with_image) }
 
-    it "should return default album image if not set" do
-      album.thumbnail_url.should == Album::DEFAULT_IMAGE_URL
-    end
-    
-    it "should return image thumbnail URL if set" do
-      album_with_image.thumbnail_url.should_not == Album::DEFAULT_IMAGE_URL
-    end
+    specify { album.thumbnail_url.should == Album::DEFAULT_IMAGE_URL }
+    specify { album_with_image.thumbnail_url.should_not == Album::DEFAULT_IMAGE_URL }
   end
-  
+
 end

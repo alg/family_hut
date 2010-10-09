@@ -17,5 +17,15 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   validates_presence_of   :name
-  
+
+  def owns?(obj)
+    case
+    when obj.is_a?(Album)
+      obj.owner
+    when obj.is_a?(Photo)
+      obj.album.owner
+    else
+      nil
+    end == self
+  end
 end

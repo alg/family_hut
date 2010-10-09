@@ -14,14 +14,14 @@ describe Post do
     end
     
     it "should disallow if it's too late" do
-      post # create post
+      create_post
       after_period_for_removing_ended do
         post.should_not be_removable_by post_owner
       end
     end
     
     it "should allow removing posts if within time frame and owned" do
-      post # create post
+      create_post
       before_period_for_removing_ended do
         post.should be_removable_by post_owner
       end
