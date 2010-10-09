@@ -17,3 +17,19 @@ def method_missing(name, *args)
     super
   end
 end
+
+# Returns raw fixture data
+def fixture_data(filename)
+  open("#{Rails.root}/spec/fixtures/#{filename}").read
+end
+
+def fixture_file(filename)
+  File.open("#{Rails.root}/spec/fixtures/#{filename}", 'rb')
+end
+
+# Logs the user in
+def login(user = Factory(:user))
+  @controller.stub(:current_user).and_return(user)
+  Time.zone = user.time_zone
+  return user
+end

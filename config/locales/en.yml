@@ -18,7 +18,7 @@ en:
     photos:             photos
 
   disallowed:
-    message:            "You cannot modify someone else's {{models}}"
+    message:            "You cannot modify someone else's %{models}"
   
   albums:
     no_albums:          There's no albums yet
@@ -112,8 +112,8 @@ en:
 
   activity:
     album:
-      created:          'created album <a href="/albums/{{album_id}}">{{album_name}}</a>'
+      created:          'created album <a href="/albums/%{album_id}">%{album_name}</a>'
     photo:
-      created:          'uploaded photo(s) to album <a href="/albums/{{album_id}}">{{album_name}}</a>'
+      created:          'uploaded photo(s) to album <a href="/albums/%{album_id}">%{album_name}</a>'
     comment:
-      created:          "commented on <a href=\"/albums/{{album_id}}/photos/{{photo_id}}\">{{photo_title}}</a> from <a href=\"/albums/{{album_id}}\">{{album_name}}</a>:<div class='body'>{{comment_comment}}</div>"
+      created:          "commented on <a href=\"/albums/%{album_id}/photos/%{photo_id}\">%{photo_title}</a> from <a href=\"/albums/%{album_id}\">%{album_name}</a>:<div class='body'>%{comment_comment}</div>"

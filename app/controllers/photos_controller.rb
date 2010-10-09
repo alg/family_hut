@@ -51,10 +51,7 @@ class PhotosController < InheritedResources::Base
   
     text = @photo.title
     @photo.title = params[:title]
-    if @photo.save
-      puts '------------------ saved'
-      text = @photo.title
-    end
+    text = @photo.title if @photo.save
   ensure
     render :text => text, :layout => false
   end

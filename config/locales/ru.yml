@@ -35,17 +35,17 @@ ru:
   datetime:
     ago:                    назад
     distance_in_words:
-      less_than_x_seconds:  "меньше {{count}} секунд"
-      less_than_x_minutes:  "меньше {{count}} минут"
+      less_than_x_seconds:  "меньше %{count} секунд"
+      less_than_x_minutes:  "меньше %{count} минут"
       half_a_minute:        полминуты
-      x_minutes:            "{{count}} минут"
-      x_days:               "{{count}} дней"
-      x_months:             "{{count}} месяцев"
-      about_x_months:       "около {{count}} месяцев"
-      about_x_hours:        "около {{count}} часов"
-      about_x_years:        "около {{count}} лет"
-      over_x_years:         "более {{count}} лет"
-      almost_x_years:       "почти {{count}} лет"
+      x_minutes:            "%{count} минут"
+      x_days:               "%{count} дней"
+      x_months:             "%{count} месяцев"
+      about_x_months:       "около %{count} месяцев"
+      about_x_hours:        "около %{count} часов"
+      about_x_years:        "около %{count} лет"
+      over_x_years:         "более %{count} лет"
+      almost_x_years:       "почти %{count} лет"
 
   layouts:
     header:
@@ -60,7 +60,7 @@ ru:
     photos:             фотографии
 
   disallowed:
-    message:            "Вы не можете модифицировать чужие {{models}}"
+    message:            "Вы не можете модифицировать чужие %{models}"
     
   albums:
     no_albums:          Еще нет альбомов
@@ -156,16 +156,16 @@ ru:
     errors:
       template:
         header:
-          one:          "Не получилось сохранить {{model}} из-за одной ошибки"
-          other:        "Не получилось сохранить {{model}} из-за нескольких ошибок" 
+          one:          "Не получилось сохранить %{model} из-за одной ошибки"
+          other:        "Не получилось сохранить %{model} из-за нескольких ошибок" 
         body:           "Ошибки были в следующих полях:"
       messages:
         blank:          должно быть заполнено
 
   activity:
     album:
-      created:          'создал(а) альбом <a href="/albums/{{album_id}}">{{album_name}}</a>'
+      created:          'создал(а) альбом <a href="/albums/%{album_id}">%{album_name}</a>'
     photo:
-      created:          'добавил(а) фотографии в альбом <a href="/albums/{{album_id}}">{{album_name}}</a>'
+      created:          'добавил(а) фотографии в альбом <a href="/albums/%{album_id}">%{album_name}</a>'
     comment:
-      created:          "прокоментировал(а) <a href=\"/albums/{{album_id}}/photos/{{photo_id}}\">{{photo_title}}</a> из <a href=\"/albums/{{album_id}}\">{{album_name}}</a>:<div class='body'>{{comment_comment}}</div>"
+      created:          "прокоментировал(а) <a href=\"/albums/%{album_id}/photos/%{photo_id}\">%{photo_title}</a> из <a href=\"/albums/%{album_id}\">%{album_name}</a>:<div class='body'>%{comment_comment}</div>"
