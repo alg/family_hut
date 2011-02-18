@@ -6,7 +6,7 @@ class ActivityObserver < ActiveRecord::Observer
     send("#{obj.class.name.downcase}_created", obj)
   rescue => e
     puts e.inspect
-    RAILS_DEFAULT_LOGGER.debug "Failed to log #{obj.class.name.downcase} creation:\n#{e.inspect}"
+    ::Rails.logger.debug "Failed to log #{obj.class.name.downcase} creation:\n#{e.inspect}"
   end
   
   private
@@ -34,8 +34,8 @@ class ActivityObserver < ActiveRecord::Observer
     photo = comment.commentable
     album = photo.album
     log(comment.user, "activity.comment.created", {
-      :album_id => album.id,      :album_name       => album.name,
-      :photo_id => photo.id,      :photo_title      => photo.title,
+      :album_id   => album.id,    :album_name       => album.name,
+      :photo_id   => photo.id,    :photo_title      => photo.title,
       :comment_id => comment.id,  :comment_comment  => comment.comment })
   end
   

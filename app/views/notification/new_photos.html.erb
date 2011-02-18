@@ -1,0 +1,6 @@
+<p>Recent uploads:</p>
+
+<% @user_photos.each do |user, photos| %>
+	<p><%= user.name %> has uploaded:</p>
+	<%= render :partial => 'photo', :collection => photos %>
+<% end %>

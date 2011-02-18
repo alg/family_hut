@@ -1,0 +1,2 @@
+# The address notifications will be sent from
+from: notifications@localhost.localdomain

@@ -28,6 +28,7 @@ So far I plan to add only:
 * Guest accounts with access to selected albums
 * RSS feed for the activity log
 * Email notifications
+* Hide posts over time (and have "show older" JS button that loads 10 more older posts)
 
 Requirements
 ============
