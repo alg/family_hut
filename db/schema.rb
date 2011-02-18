@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100429221125) do
+ActiveRecord::Schema.define(:version => 20110218014850) do
 
   create_table "albums", :force => true do |t|
     t.string   "name",                          :null => false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20100429221125) do
   add_index "logs", ["created_at"], :name => "index_logs_on_created_at"
 
   create_table "photos", :force => true do |t|
-    t.integer  "album_id",           :null => false
+    t.integer  "album_id",                              :null => false
     t.string   "title"
     t.text     "desc"
     t.string   "image_file_name"
@@ -59,9 +59,11 @@ ActiveRecord::Schema.define(:version => 20100429221125) do
     t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "notified",           :default => false, :null => false
   end
 
   add_index "photos", ["album_id"], :name => "index_photos_on_album_id"
+  add_index "photos", ["notified"], :name => "index_photos_on_notified"
 
   create_table "posts", :force => true do |t|
     t.text     "body"

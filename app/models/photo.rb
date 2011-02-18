@@ -11,11 +11,17 @@ class Photo < ActiveRecord::Base
   acts_as_commentable
 
   scope :with_image, where("image_file_name IS NOT NULL")
+  scope :unnotified, where(:notified => false)
 
   before_save :normalize_title
   
   private
-    
+
+  def notified!
+    self.notified = true
+    save!
+  end
+  
   def normalize_title
     self.title = "Untitled" if self.title.blank?
   end

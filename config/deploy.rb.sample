@@ -22,7 +22,6 @@ end
 # Create uploads directory and link
 task :deploy_shared, :roles => :app do
   run "cp #{shared_path}/config/database.yml #{latest_release}/config/database.yml"
-  run "cp #{shared_path}/config/production_custom.rb #{latest_release}/config/environments/production_custom.rb"
   run "ln -s #{shared_path}/assets #{latest_release}/public/assets"
 end
 
@@ -41,4 +40,13 @@ namespace :deploy do
     desc "#{t} task is a no-op with mod_rails"
     task t, :roles => :app do ; end
   end
+end
+
+namespace :whenever do
+  desc "Update the crontab file"
+  task :update, :roles => :app do
+    run "cd #{current_path} && bundle exec whenever --set environment=#{rails_env} --update-crontab #{application}"
+  end
+
+  before 'deploy:restart', 'whenever:update'
 end
