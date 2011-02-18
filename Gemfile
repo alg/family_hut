@@ -12,6 +12,8 @@ gem 'paperclip'
 gem 'less'
 gem 'RedCloth'
 
+gem 'whenever'
+
 group :test do 
   gem 'rspec'
   gem 'rspec-rails'

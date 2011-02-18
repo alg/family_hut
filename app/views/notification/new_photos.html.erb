@@ -1,6 +1,8 @@
-<p>Recent uploads:</p>
+<p><%= t('.recent_uploads')%></p>
 
 <% @user_photos.each do |user, photos| %>
-	<p><%= user.name %> has uploaded:</p>
-	<%= render :partial => 'photo', :collection => photos %>
+	<p><%= t('.has_uploaded').gsub('{{name}}', user.name) %></p>
+	<div class='images'>
+		<%= render :partial => 'photo', :collection => photos %>
+	</div>
 <% end %>

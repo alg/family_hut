@@ -110,6 +110,12 @@ en:
       create:           Create
       update:           Update
 
+  notification:
+    new_photos:
+      subject:          New Photos
+      recent_uploads:   'Recent uploads:'
+      has_uploaded:     '{{name}} has uploaded:'
+      
   activity:
     album:
       created:          'created album <a href="/albums/%{album_id}">%{album_name}</a>'

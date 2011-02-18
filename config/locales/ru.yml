@@ -162,6 +162,12 @@ ru:
       messages:
         blank:          должно быть заполнено
 
+  notification:
+    new_photos:
+      subject:          Новые фотографии
+      recent_uploads:   'Последнее:'
+      has_uploaded:     '{{name}} добавил(а):'
+
   activity:
     album:
       created:          'создал(а) альбом <a href="/albums/%{album_id}">%{album_name}</a>'

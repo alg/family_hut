@@ -6,7 +6,7 @@ class Notification < ActionMailer::Base
   def new_photos(user, photos)
     @user_photos = photos.group_by { |p| p.album.owner }
     mail  :to       => user.email,
-          :subject  => "New photos"
+          :subject  => t('notification.new_photos.subject')
   end
 
 end
