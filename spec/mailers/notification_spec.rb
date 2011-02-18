@@ -6,9 +6,9 @@ describe Notification do
     let(:photo) { Factory(:photo) }
     let(:user)  { Factory(:user) }
     
-    subject { Notification.new_photos(user, [ photo ]) }
+    subject { Notification.new_photos([ user ], [ photo ]) }
     
-    its(:subject) { should == "New photos" }
+    its(:subject) { should == "New Photos" }
     its(:to)      { should == [ user.email ] }
     its(:from)    { should == [ AppConfig['from'] ] }
     its(:body)    { should match photo.image.url(:brief) }
