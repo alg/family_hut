@@ -5,7 +5,7 @@
 config/database.yml
 config/config.yml
 config/deploy.rb
-config/environments/{production.rb
+config/environments/production.rb
 
 doc/api
 log/*.log
