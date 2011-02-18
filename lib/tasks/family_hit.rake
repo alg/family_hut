@@ -5,14 +5,14 @@ namespace :family_hut do
     locale_users = User.all.group_by(&:locale)
     photos = Photo.unnotified
 
-    return if photos.empty?
+    unless photos.empty?
+      locale_users.each do |locale, users|
+        I18n.locale = locale
+        Notification.new_photos(users, photos).deliver
+      end
 
-    locale_users.each do |locale, users|
-      I18n.locale = locale
-      Notification.new_photos(users, photos).deliver
+      photos.each(&:notified!)
     end
-
-#    photos.each(&:notified!)
   end
 
 end
