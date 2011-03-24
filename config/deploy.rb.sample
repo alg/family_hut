@@ -21,6 +21,7 @@ end
 
 # Create uploads directory and link
 task :deploy_shared, :roles => :app do
+  run "cp #{shared_path}/config/production.rb #{latest_release}/config/environments/production.rb"
   run "cp #{shared_path}/config/database.yml #{latest_release}/config/database.yml"
   run "cp #{shared_path}/config/config.yml #{latest_release}/config/config.yml"
   run "ln -s #{shared_path}/assets #{latest_release}/public/assets"
