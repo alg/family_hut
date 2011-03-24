@@ -14,7 +14,8 @@ class Photo < ActiveRecord::Base
   scope :unnotified, where(:notified => false)
 
   before_save :normalize_title
-  
+  after_save :delete_original
+
   private
 
   def notified!
@@ -24,6 +25,10 @@ class Photo < ActiveRecord::Base
   
   def normalize_title
     self.title = "Untitled" if self.title.blank?
+  end
+
+  def destroy_original
+    File.unlink(self.image.path)
   end
   
 end
