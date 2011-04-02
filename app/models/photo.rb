@@ -16,19 +16,19 @@ class Photo < ActiveRecord::Base
   before_save :normalize_title
   after_save :destroy_original
 
-  private
-
   def notified!
     self.notified = true
     save!
   end
   
+  private
+
   def normalize_title
     self.title = "Untitled" if self.title.blank?
   end
 
   def destroy_original
-    File.unlink(self.image.path)
+    File.unlink(self.image.path) if File.exists?(self.image.path)
   end
   
 end
