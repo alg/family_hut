@@ -6,4 +6,6 @@ class Comment < ActiveRecord::Base
   
   validates_presence_of :comment
 
+  scope :unnotified, where(:notified => false)
+
 end

@@ -1,0 +1,4 @@
+<%- photo = small_photo -%>
+<div class='thumb'>
+	<%= link_to image_tag("http://#{AppConfig['host']}#{photo.image.url(:thumb)}"), album_photo_url(photo.album, photo) %>
+</div>

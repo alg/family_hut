@@ -111,11 +111,15 @@ en:
       update:           Update
 
   notification:
-    new_photos:
-      subject:          New Photos
-      recent_uploads:   'Recent uploads:'
+    news:
+      subject:          Family Hut News
+      recent_uploads:   'Recent Uploads'
+      hints:            'Click on pictures to see a bigger version or post a reply.'
       has_uploaded:     '{{name}} has uploaded:'
-      
+      recent_comments:  'Recent Comments'
+    comment:
+      said:             '{{name}} said'
+
   activity:
     album:
       created:          'created album <a href="/albums/%{album_id}">%{album_name}</a>'

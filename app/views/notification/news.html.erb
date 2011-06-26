@@ -1,0 +1,23 @@
+<%- if @user_photos.any? -%>
+	<h1><%= t('.recent_uploads')%></h1>
+	<p class="hint"><%= t('.uploads_hint') %></p>
+
+	<% @user_photos.each do |user, photos| %>
+		<h2><%= t('.has_uploaded').gsub('{{name}}', user.name) %></h2>
+		<div class='images'>
+			<%= render :partial => 'photo', :collection => photos %>
+		</div>
+	<% end %>
+<%- end -%>
+
+<%- if @photo_comments.any? -%>
+	<h1><%= t('.recent_comments') %></h1>
+	<% @photo_comments.each do |photo, comments| %>
+		<div class='photo_comments'>
+			<%= render :partial => 'small_photo', :object => photo %>
+			<div class='comments'>
+				<%= render :partial => 'comment', :collection => comments %>
+			</div>
+		</div>
+	<% end %>
+<%- end -%>

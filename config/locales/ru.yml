@@ -163,10 +163,14 @@ ru:
         blank:          должно быть заполнено
 
   notification:
-    new_photos:
-      subject:          Новые фотографии
-      recent_uploads:   'Последнее:'
+    news:
+      subject:          Обновления Family Hut
+      recent_uploads:   'Новые Фото'
+      hints:            'Кликните на фото, чтобы открыть полную версию или ответить на комментарий.'
       has_uploaded:     '{{name}} добавил(а):'
+      recent_comments:  'Новые Комментарии'
+    comment:
+      said:             '{{name}} сказал(а):'
 
   activity:
     album:

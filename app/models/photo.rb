@@ -28,7 +28,7 @@ class Photo < ActiveRecord::Base
   end
 
   def destroy_original
-    File.unlink(self.image.path) if File.exists?(self.image.path)
+    File.unlink(self.image.path) if self.image.path && File.exists?(self.image.path)
   end
   
 end

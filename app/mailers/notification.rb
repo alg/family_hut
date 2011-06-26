@@ -3,11 +3,12 @@ class Notification < ActionMailer::Base
   default_url_options[:host] = AppConfig['host']
   default :from => AppConfig['from']
 
-  def new_photos(users, photos)
-    @user_photos = photos.group_by { |p| p.album.owner }
+  def news(users, photos, comments)
+    @user_photos    = photos.group_by { |p| p.album.owner }
+    @photo_comments = comments.group_by { |c| c.commentable }
     
     mail  :to       => users.map { |u| "#{u.name} <#{u.email}>" }.join(', '),
-          :subject  => t('notification.new_photos.subject')
+          :subject  => t('notification.news.subject')
   end
 
 end

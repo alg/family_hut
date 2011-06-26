@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110218014850) do
+ActiveRecord::Schema.define(:version => 20110626073213) do
 
   create_table "albums", :force => true do |t|
     t.string   "name",                          :null => false
@@ -32,11 +32,13 @@ ActiveRecord::Schema.define(:version => 20110218014850) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "notified",                       :default => false, :null => false
   end
 
   add_index "comments", ["comment_type"], :name => "index_comments_on_comment_type"
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["notified"], :name => "index_comments_on_notified"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "logs", :force => true do |t|
