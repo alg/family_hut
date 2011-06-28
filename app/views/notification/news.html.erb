@@ -1,6 +1,6 @@
 <%- if @user_photos.any? -%>
 	<h1><%= t('.recent_uploads')%></h1>
-	<p class="hint"><%= t('.uploads_hint') %></p>
+	<p class="hint"><%= t('.hints') %></p>
 
 	<% @user_photos.each do |user, photos| %>
 		<h2><%= t('.has_uploaded').gsub('{{name}}', user.name) %></h2>
