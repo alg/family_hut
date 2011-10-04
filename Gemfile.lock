@@ -65,7 +65,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mutter (0.5.3)
-    mysql2 (0.3.7)
+    mysql2 (0.2.13)
     paperclip (2.3.8)
       activerecord
       activesupport
@@ -127,7 +127,7 @@ DEPENDENCIES
   haml
   inherited_resources
   less
-  mysql2
+  mysql2 (< 0.3)
   paperclip
   rails (= 3.0.4)
   rspec
