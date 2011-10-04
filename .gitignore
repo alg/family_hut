@@ -7,6 +7,8 @@ config/config.yml
 config/deploy.rb
 config/environments/production.rb
 
+public/*.tar
+
 doc/api
 log/*.log
 tmp
@@ -15,5 +17,5 @@ db/*.sqlite3
 bin/*
 vendor/bundler_gems/*
 !vendor/bundler_gems/ruby/1.8/cache/
-public/assets
+public/assets*
 config/environments/development.rb
