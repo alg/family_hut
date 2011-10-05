@@ -3,4 +3,4 @@
   .details
     .name= link_to event.user.name, event.user
     .date=l event.created_at, :format => :long
-    .message== #{raw t(event.activity, event.data)}
+    .message= raw t(event.activity, event.data)

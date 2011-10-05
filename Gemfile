@@ -7,10 +7,12 @@ gem 'inherited_resources'
 gem 'authlogic'
 gem 'haml'
 gem 'formtastic'
+#gem 'mysql'
 gem 'mysql2', '< 0.3'
 gem 'paperclip'
 gem 'less'
 gem 'RedCloth'
+gem 'rails-i18n'
 
 gem 'whenever'
 
