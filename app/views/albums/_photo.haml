@@ -1,4 +1,4 @@
 .photo{ :pid => photo.id }
   .title= photo.title
-  .date=l photo.created_at, :format => :long
-  .image= link_to image_tag(photo.image.url(:brief)), [photo.album, photo]
+  .date= photo.created_at.strftime("%b %e, %Y")
+  .image= link_to image_tag(photo.image.url(:brief)), [ photo.album, photo ]

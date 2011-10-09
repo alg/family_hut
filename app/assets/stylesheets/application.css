@@ -1,0 +1,8 @@
+/*
+ *= require_self
+ *= require reset
+ *= require global
+ *= require formtastic
+ *= require formtastic_changes
+ *= require_tree . 
+*/

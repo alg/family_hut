@@ -1,8 +1,8 @@
 ru:
   family_hut:           Family Hut
   back:                 Назад
-  previous:             Предыдущая
-  next:                 Следущая
+  previous:             "&larr; Предыдущая"
+  next:                 Следущая &rarr;
   send:                 Отправить
 
   date:

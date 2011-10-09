@@ -1,7 +1,7 @@
-@full-width: 980px;
-@photo-brief-width: 256px;
-@photo-brief-height: 256px + 84px;
-@photo-meta-margin: @photo-brief-width + 32px;
+$full-width: 980px;
+$photo-brief-width: 256px;
+$photo-brief-height: 256px + 84px;
+$photo-meta-margin: $photo-brief-width + 32px;
 
 body {
   font-family: helvetica,arial,sans-serif;
@@ -21,8 +21,8 @@ body {
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
   
   .container {
-    background: url(/images/logo.png) 100% 3px no-repeat;
-    width: @full-width;
+    background: url(/app_assets/logo.png) 100% 3px no-repeat;
+    width: $full-width;
     margin: 0 auto;
     padding: 10px 0;
   }
@@ -43,7 +43,7 @@ body {
 }
 
 #content {
-  width: @full-width;
+  width: $full-width;
   margin: 4em auto 3em;
   background: #fff;
 }
@@ -93,11 +93,11 @@ div.photo {
   margin: 0 53px 2em 0;
   float: left;
   overflow: hidden;
-  height: @photo-brief-height;
+  height: $photo-brief-height;
   
   .image {
     margin: 0.25em 0;
-    width: @photo-brief-width;
+    width: $photo-brief-width;
     float: left;
   }
   
@@ -136,13 +136,40 @@ div.photo.placeholder {
 }
 
 
+#head {
+  h1 {
+    text-align: center;
+    float: left;
+    width: 780px;
+    height: 60px;
+    line-height: 30px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    small {
+      font-size: 66%;
+      line-height: 24px;
+    }
+  }
+
+  .next, .prev {
+    float: left;
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+    vertical-align: bottom;
+  }
+  
+  .next {
+    text-align: right;
+  }
+}
+
 div.photo.full {
   height: auto;
   float: none;
+  clear: both;
   margin: 0 0 2em 0;
 
-  .next { float: right; }
-  .prev { float: left; }
   .container {
     margin: 0 20px;
     .image {
@@ -200,7 +227,7 @@ a.delete { color: red; }
 
   /* close button positioned on upper right corner */ 
   .close { 
-    background-image:url(/images/close.png); 
+    background-image:url(/app_assets/close.png); 
     position:absolute; 
     right:-15px; 
     top:-15px; 
@@ -359,5 +386,5 @@ h2 .commands {
 
 .action               { display: block; margin: 2px 2px 2px 0; border: 1px solid #fff; padding: 2px; width: 16px; height: 16px; float: left; }
 .action:hover         { border-color: #88a; background: #ddf; }
-.icon_photo img       { background: url(/images/iconImage.png) transparent 0 0 no-repeat; }
-.icon_photo:hover img { background-image: url(/images/iconImage-hover.png); }
+.icon_photo img       { background: url(/app_assets/iconImage.png) transparent 0 0 no-repeat; }
+.icon_photo:hover img { background-image: url(/app_assets/iconImage-hover.png); }

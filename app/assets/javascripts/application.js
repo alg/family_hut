@@ -1,4 +1,9 @@
-//= require "jquery/jquery.tools.min"
+//= require jquery
+//= require jquery.jeditable
+//= require jquery.tools.min
+//= require ajaxupload
+//= require_self
+//= require_tree .
 
 function show_uploaded_image(placeholder_id, photo_id, title, date, brief_url, photo_url) {
   var img = $("<img></img>").attr("src", brief_url);

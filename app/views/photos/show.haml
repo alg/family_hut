@@ -1,10 +1,9 @@
-%h1
-  = @photo.title
-  == (#{link_to @photo.album.name, parent_path})
+#head
+  = link_to_previous_photo
+  %h1 #{@photo.title}<br><small>#{link_to @photo.album.name, parent_path}</small>
+  = link_to_next_photo
 
 .photo.full
-  = link_to_previous_photo
-  = link_to_next_photo
   .container
     .image
       = paperclip_image_tag @photo.image, :full
@@ -23,7 +22,7 @@
   #comments
     = render :partial => "comment", :collection => @photo.comments.all(:order => "created_at asc", :include => :user)
 
-- semantic_form_for :comment, :url => create_comment_album_photo_path(@photo.album, @photo) do |f|
+= semantic_form_for :comment, :url => create_comment_album_photo_path(@photo.album, @photo) do |f|
   = f.input :comment, :as => :text
-  - f.buttons do
+  = f.buttons do
     = f.commit_button t(".add_comment")
