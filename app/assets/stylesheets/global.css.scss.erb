@@ -21,7 +21,7 @@ body {
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
   
   .container {
-    background: url(/app_assets/logo.png) 100% 3px no-repeat;
+    background: url(<%= asset_path 'logo.png' %>) 100% 3px no-repeat;
     width: $full-width;
     margin: 0 auto;
     padding: 10px 0;
@@ -227,7 +227,7 @@ a.delete { color: red; }
 
   /* close button positioned on upper right corner */ 
   .close { 
-    background-image:url(/app_assets/close.png); 
+    background-image:url(<%= asset_path 'close.png' %>); 
     position:absolute; 
     right:-15px; 
     top:-15px; 
@@ -386,5 +386,5 @@ h2 .commands {
 
 .action               { display: block; margin: 2px 2px 2px 0; border: 1px solid #fff; padding: 2px; width: 16px; height: 16px; float: left; }
 .action:hover         { border-color: #88a; background: #ddf; }
-.icon_photo img       { background: url(/app_assets/iconImage.png) transparent 0 0 no-repeat; }
-.icon_photo:hover img { background-image: url(/app_assets/iconImage-hover.png); }
+.icon_photo img       { background: url(<%= asset_path 'iconImage.png' %>) transparent 0 0 no-repeat; }
+.icon_photo:hover img { background-image: url(<%= asset_path 'iconImage-hover.png' %>); }

@@ -53,4 +53,12 @@ namespace :whenever do
   before 'deploy:restart', 'whenever:update'
 end
 
+namespace :assets do
+  task :precompile, :roles => :app do
+    run "cd #{current_path} && bundle exec rake assets:precompile"
+  end
+  
+  before "deploy:restart", "assets:precompile"
+end
+
 after "deploy:restart", "deploy:cleanup"
