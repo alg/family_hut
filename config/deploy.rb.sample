@@ -52,3 +52,5 @@ namespace :whenever do
 
   before 'deploy:restart', 'whenever:update'
 end
+
+after "deploy:restart", "deploy:cleanup"
