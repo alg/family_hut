@@ -33,7 +33,8 @@ So far I plan to add only:
 Requirements
 ============
 
-* Rails 3
+* Rails 3   
+* ImageMagick
 
 Installation
 ============
