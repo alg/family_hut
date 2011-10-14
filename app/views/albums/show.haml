@@ -1,5 +1,7 @@
 %h1= @album.name
 
+= hidden_field_tag 'album_id', @album.id
+
 .commands
   - if owns?(@album)
     = link_to t(".add_10_photos"),  new_ten_album_photos_path(@album)
@@ -10,17 +12,3 @@
   - if owns?(@album)
     = render :partial => "upload_placeholder"
   = render :partial => "photo", :collection => @album.photos.all
-
-- if owns?(@album)
-  :javascript
-    $(function() {
-      $(".photo .title").editable("/albums/#{@album.id}/photos/update_title", { 
-        type: "text",
-        name: "title",
-        submit: "OK",
-        submitdata: function() {
-          var pid = $(this).parent().attr("pid");
-          return { album_id: #{@album.id}, id: pid };
-        }
-      });
-    });

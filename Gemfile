@@ -1,7 +1,7 @@
 source :gemcutter
 source "http://gems.github.com"
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 gem 'will_paginate', "~> 3.0.pre2"
 gem 'inherited_resources'
 gem 'authlogic'
@@ -24,10 +24,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-group :development do
-  gem 'mongrel'
-end
 
 group :test do 
   gem 'rspec'
