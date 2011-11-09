@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/alg/family_hut.png)](http://travis-ci.org/#!/alg/family_hut)
+
 General
 =======
 
