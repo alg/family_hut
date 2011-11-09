@@ -1,0 +1,5 @@
+test:
+  adapter: mysql2
+  database: family_hut_t
+  username:
+  encoding: utf8

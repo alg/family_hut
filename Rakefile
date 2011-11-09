@@ -5,3 +5,17 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
 FamilyHut::Application.load_tasks
+
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec)
+
+task :default => :test
+task :test do
+  configs = YAML.load_file('config/database-travis.yml')
+  ActiveRecord::Base.configurations = configs
+
+  ActiveRecord::Base.establish_connection('test')
+  ActiveRecord::Base.default_timezone = :utc
+
+  Rake::Task['spec'].execute
+end
