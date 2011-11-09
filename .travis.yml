@@ -5,3 +5,4 @@ script: "bundle exec rake --trace"
 before_script:
   - "mysql -e 'create database family_hut_test;'"
   - "cp config/database{-travis,}.yml"
+  - "cp config/config.yml{.sample,}"
