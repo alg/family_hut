@@ -1,7 +1,7 @@
 class AddLocaleAndTimezoneToUsers < ActiveRecord::Migration
   def self.up
     add_column :users, :locale,     :string, :default => 'ru'
-    add_column :users, :time_zone,  :string, :default => 'Kyev'
+    add_column :users, :time_zone,  :string, :default => 'Kyiv'
   end
 
   def self.down

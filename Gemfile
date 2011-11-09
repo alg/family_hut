@@ -6,7 +6,7 @@ gem 'will_paginate', "~> 3.0.pre2"
 gem 'inherited_resources'
 gem 'authlogic'
 gem 'formtastic'
-gem 'mysql2'
+gem 'mysql2', "~> 0.3.7", :git => "git://github.com/brianmario/mysql2.git"
 gem 'paperclip'
 gem 'RedCloth'
 gem 'rails-i18n'
@@ -20,18 +20,16 @@ group :assets do
   gem 'coffee-rails', '~> 3.1.0'
   gem 'haml-rails'
   gem 'uglifier'
-  gem 'therubyracer'
+  gem 'therubyracer', '0.9.8'
 end
 
 gem 'jquery-rails'
 
 group :test do 
-  gem 'rspec'
   gem 'rspec-rails'
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'timecop'
-  gem 'ZenTest'
 end
 

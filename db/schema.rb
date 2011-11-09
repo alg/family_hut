@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(:version => 20110626073213) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "locale",              :default => "ru"
-    t.string   "time_zone",           :default => "Kyev"
+    t.string   "time_zone",           :default => "Kyiv"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

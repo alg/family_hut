@@ -9,6 +9,7 @@ Factory.define :user do |f|
   f.password              'testing'
   f.password_confirmation { |o| o.password }
   f.locale                'en'
+  f.time_zone             'Kyiv'
 end
 
 Factory.define :album do |f|
