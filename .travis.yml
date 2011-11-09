@@ -2,3 +2,4 @@ rvm: 1.9.3
 
 before_script:
   - "mysql -e 'create database family_hut_test;'"
+  - "cp config/database{-travis,}.yml"
