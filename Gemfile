@@ -10,6 +10,7 @@ gem 'mysql2', "~> 0.3.7", :git => "git://github.com/brianmario/mysql2.git"
 gem 'paperclip'
 gem 'RedCloth'
 gem 'rails-i18n'
+gem 'haml'
 
 gem 'whenever'
 
@@ -18,7 +19,7 @@ gem 'whenever'
 group :assets do
   gem 'sass-rails',   '~> 3.1.0'
   gem 'coffee-rails', '~> 3.1.0'
-  gem 'haml-rails'
+  #gem 'haml-rails'
   gem 'uglifier'
   gem 'therubyracer', '0.9.8'
 end
