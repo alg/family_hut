@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery.jeditable
 //= require jquery.tools.min
+//= require jquery_ujs
 //= require ajaxupload
 //= require_self
 //= require_tree .
