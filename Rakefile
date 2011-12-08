@@ -6,8 +6,10 @@ require 'rake'
 
 FamilyHut::Application.load_tasks
 
-require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:spec)
+unless Rails.env.production?
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
 
-task :default => :test
-task :test    => :spec
+  task :default => :test
+  task :test    => :spec
+end
