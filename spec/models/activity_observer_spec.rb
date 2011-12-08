@@ -31,7 +31,7 @@ describe ActivityObserver do
     create_another_photo
     Log.where(:activity => 'activity.photo.created').count.should == 1
   end
-  
+
   it "should log creating a comment" do
     create_comment
     user.should log('activity.comment.created', {

@@ -1,6 +1,6 @@
 %h1= t(".header")
 
-- form_for :photos, :url => create_ten_album_photos_path(params[:album_id]), :html => { :multipart => true, :id => "ten_photos", :class => "formtastic" } do |f|
+= form_for :photos, :url => create_ten_album_photos_path(params[:album_id]), :html => { :multipart => true, :id => "ten_photos", :class => "formtastic" } do |f|
   %table
     %tr
       %th= t(".title")
@@ -13,5 +13,5 @@
         %td
           %li.file
             = f.file_field "photos[#{i}][image]"
-  
+
   = f.submit t(".upload")

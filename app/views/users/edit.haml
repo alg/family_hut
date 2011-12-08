@@ -1,6 +1,6 @@
 %h1= t(".header")
- 
-- semantic_form_for @user, :url => account_path, :html => { :multipart => true } do |f|
+
+= semantic_form_for @user, :url => account_path, :html => { :multipart => true } do |f|
   = render :partial => "form", :object => f
 
 .commands

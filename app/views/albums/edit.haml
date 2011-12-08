@@ -1,8 +1,8 @@
 %h1= t(".header")
 
-- semantic_form_for @album do |f|
+= semantic_form_for @album do |f|
   = f.input :name
   = f.buttons
-  
+
 .commands
   = link_to t("back"), :back
