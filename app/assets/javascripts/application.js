@@ -16,7 +16,7 @@ function show_uploaded_image(placeholder_id, photo_id, title, date, brief_url, p
 }
 
 function generate_uploading_placeholder(placeholder_id) {
-  var photo = $("<div class='photo placeholder' id='pid_" + placeholder_id + "'><div class='title'>&nbsp;</div><div class='date'>&nbsp;</div><div class='image'><img src='/images/indicator.gif'> Uploading</div></div>");
+  var photo = $("<div class='photo placeholder' id='pid_" + placeholder_id + "'><div class='title'>&nbsp;</div><div class='date'>&nbsp;</div><div class='image'><img src='/app_assets/indicator.gif'> Uploading</div></div>");
   photo.insertAfter("#photos .placeholder.upload");
 }
 
