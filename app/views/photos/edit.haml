@@ -1,4 +1,4 @@
-%h1= t(".header")
+- @page_title= t(".header")
 
-= semantic_form_for @photo, :url => resource_url, :html => { :multipart => true } do |f|
+= form_for @photo, :url => resource_url, :html => { :multipart => true } do |f|
   = render :partial => "form", :object => f

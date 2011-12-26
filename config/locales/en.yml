@@ -5,6 +5,9 @@ en:
   next:                 Next &rarr;
   send:                 Send
 
+  photo:                Photo
+  new_photos:           New Photos
+
   layouts:
     header:
       dashboard:        Dashboard
@@ -19,7 +22,7 @@ en:
 
   disallowed:
     message:            "You cannot modify someone else's %{models}"
-  
+
   albums:
     no_albums:          There's no albums yet
     index:
@@ -36,7 +39,7 @@ en:
       header:           New Album
     edit:
       header:           Edit Album
-  
+
   photos:
     show:
       administration:   Administration
@@ -55,7 +58,7 @@ en:
       header:           Upload Photo
     edit:
       header:           Edit Photo
-      
+
   users:
     lives_in:           Lives in
     last_login:         Last login
@@ -84,7 +87,7 @@ en:
       message:          If you know someone you would like to invite to Familty Hut, fill in this form for them.
     edit:
       header:           Edit Account
-  
+
   formtastic:
     labels:
       album:

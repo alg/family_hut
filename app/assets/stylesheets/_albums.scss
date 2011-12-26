@@ -1,0 +1,14 @@
+#albums {
+  overflow: hidden;
+}
+
+.album {
+  margin: 19px 19px 0 0;
+  height: 148px;
+  overflow: hidden;
+
+  .thumbnail {
+    float: left;
+    margin-right: 10px;
+  }
+}

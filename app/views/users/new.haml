@@ -1,6 +1,8 @@
-%h1= t(".header")
+- @page_title = t(".header")
 
-%p= t(".message")
+.row
+  .span16
+    %p= t(".message")
 
-= semantic_form_for @user, :url => account_path, :html => { :multipart => true } do |f|
-  = render :partial => "form", :object => f
+    = form_for @user, :url => account_path, :html => { :multipart => true } do |f|
+      = render :partial => "form", :object => f

@@ -1,7 +1,9 @@
-%h1= t(".header")
+- @page_title= t(".header")
 
-.commands
-  = link_to t(".invite"), new_user_path
+.row
+  .span16.commands
+    = link_to t(".invite"), new_user_path, :class => "btn"
 
-= render :partial => "user", :collection => @users
+.row
+  = render :partial => "user", :collection => @users
 

@@ -1,7 +1,6 @@
-%h1= t(".header")
+- @page_title = t(".header")
 
-= semantic_form_for @user, :url => account_path, :html => { :multipart => true } do |f|
-  = render :partial => "form", :object => f
-
-.commands
-  = link_to t("layouts.header.my_account"), account_path
+.row
+  .span16
+    = form_for @user, :url => account_path, :html => { :multipart => true } do |f|
+      = render :partial => "form", :object => f

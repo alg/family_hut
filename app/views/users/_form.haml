@@ -1,12 +1,39 @@
-= form.input :login
-= form.input :name
-= form.input :email
+.clearfix
+  = form.label :login
+  .input= form.text_field :login
+
+.clearfix
+  = form.label :name
+  .input= form.text_field :name
+
+.clearfix
+  = form.label :email
+  .input= form.text_field :email
+
 - unless form.object.new_record?
-  = form.input :avatar, :required => false
-= form.input :location, :required => false
-= form.input :time_zone, :required => false
-= form.input :locale, :collection => { "Русский" => 'ru', "English" => 'en' }, :include_blank => false, :required => false
-= form.input :password, :as => :password, :required => false
-= form.input :password_confirmation, :as => :password, :required => false
-- form.buttons do
-  = form.commit_button
+  .clearfix
+    = form.label :avatar
+    .input= form.file_field :avatar, :required => false
+
+.clearfix
+  = form.label :location, :required => false
+  .input= form.text_field :location
+
+.clearfix
+  = form.label :time_zone, :required => false
+  .input= form.time_zone_select :time_zone
+
+.clearfix
+  = form.label :locale
+  .input= form.select :locale, "Русский" => 'ru', "English" => 'en'
+
+.clearfix
+  = form.label :password
+  .input= form.password_field :password, :as => :password, :required => false
+
+.clearfix
+  = form.label :password_confirmation, "again"
+  .input= form.password_field :password_confirmation, :as => :password, :required => false
+
+.actions
+  = form.submit :class => "primary btn"

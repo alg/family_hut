@@ -1,0 +1,100 @@
+body { padding-top: 40px; }
+
+.page-header { padding: 20px 0; }
+
+#photos .photo {
+  float: left;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#posts {
+  margin-bottom: 20px;
+  .avatar {
+    float: left;
+    margin: 0 10px 1px 0;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+#new_post {
+  textarea {
+    width: 325px;
+    height: 54px;
+  }
+}
+
+nav .next { text-align: right; }
+
+.commands {
+  margin: 0 0 20px 0;
+}
+
+.photo .title {
+  height: 17px;
+  text-overflow: ellipsis;
+}
+
+.photo.placeholder {
+  width: 254px;
+  height: 254px;
+  margin: 0 24px 0 0;
+  border: 1px dotted #ccc;
+  background: #eee;
+  .image {
+    text-align: center;
+    line-height: 13px;
+    padding-top: 120px;
+  }
+}
+.photo.full .image {
+  text-align: center;
+}
+
+.event, .comment {
+  overflow: hidden;
+  margin-bottom: 20px;
+  .avatar {
+    float: left;
+  }
+  .details {
+    .name {
+      color: #448;
+      font-weight: bold;
+    }
+    small {
+      font-size: 90%;
+      color: #666;
+    }
+  }
+}
+
+.event .details {
+  margin-left: 58px;
+}
+
+.comment .details {
+  margin-left: 150px;
+}
+
+#comment_comment {
+  width: 780px;
+  height: 56px;
+}
+
+.user {
+  overflow: hidden;
+  height: 64px;
+  margin-bottom: 10px;
+  .avatar {
+    float: left;
+    width: 64px;
+    height: 64px;
+    margin-right: 10px;
+  }
+}
+
+@import 'journal';
+@import 'albums';
+

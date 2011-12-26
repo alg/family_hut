@@ -1,11 +1,18 @@
-#header
-  .container
-    #links
+.topbar
+  .fill
+    .container
+      = link_to "Family Hut", :root, :class => "brand"
       - if logged_in?
-        = link_to t('.dashboard'), dashboard_path
-        = link_to t('.albums'),    albums_path
-        = link_to t('.people'),    users_path
-        = link_to t('.my_account'), account_path
-        = link_to t('.log_out'),   logout_path
+        %ul
+          %li= link_to t('.dashboard'),   :dashboard
+          %li= link_to t('.albums'),      :albums
+          %li= link_to t('.people'),      :users
+          %li= link_to t('.my_account'),  :account
+          %li= link_to t('.log_out'),     :logout
       - else
-        &nbsp;
+        = form_for :user_session, :url => user_session_path, :html => { :class => 'pull-right' } do |f|
+          = text_field_tag     "user_session[login]", '', :class => 'input-small', :placeholder => 'Login'
+          = password_field_tag "user_session[password]", '', :class => 'input-small', :placeholder => 'Password'
+          = f.hidden_field     :remember_me
+          %button.btn Login
+

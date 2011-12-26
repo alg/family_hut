@@ -9,15 +9,17 @@ describe UsersController do
     before  { get :dashboard }
     specify { response.should render_template(:dashboard) }
     specify { assigns(:albums).should == user.albums }
-    specify { assigns(:events).should_not be_nil }
+    specify { assigns(:events).should be }
+    specify { assigns(:post).should   be }
+    specify { assigns(:photos).should be }
   end
-  
+
   context ".index" do
     before  { get :index }
     specify { response.should render_template(:index) }
     specify { assigns(:users).should == User.all }
   end
-  
+
   context ".show" do
     before  { get :show }
     specify { response.should render_template(:show) }
@@ -29,7 +31,7 @@ describe UsersController do
       post :update
       response.should redirect_to(account_url)
     end
-    
+
     it "should fail with invalid data" do
       user.should_receive(:update_attributes).and_return(false)
       post :update

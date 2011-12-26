@@ -1,28 +1,35 @@
-#head
-  = link_to_previous_photo
-  %h1 #{@photo.title}<br><small>#{link_to @photo.album.name, parent_path}</small>
-  = link_to_next_photo
+- @page_title = @photo.title
+- @page_tagline = link_to(@photo.album.name, parent_path)
 
-.photo.full
-  .container
-    .image
-      = paperclip_image_tag @photo.image, :full
-      - if owns?(@photo)
-        .admin
-          = link_to t(".edit"),   edit_album_photo_path(@photo.album, @photo), :class => "edit"
-          = link_to t(".delete"), [ @photo.album, @photo ], :method => :delete, :class => "delete", :confirm => t(".delete_confirm")
-    .desc= @photo.desc
+- if owns?(@photo)
+  .row
+    .span16.commands
+      = link_to t(".edit"),   edit_album_photo_path(@photo.album, @photo), :class => "btn"
+      = link_to t(".delete"), [ @photo.album, @photo ], :method => :delete, :class => "danger btn", :confirm => t(".delete_confirm")
 
-%h2
-  %a{ :name => "comments" }= t(".comments")
+%nav.row
+  .span8= link_to_previous_photo
+  .span8= link_to_next_photo
 
-- unless @photo.comments.any?
-  .no-items= t(".no_comments")
-- else
-  #comments
-    = render :partial => "comment", :collection => @photo.comments.all(:order => "created_at asc", :include => :user)
+.row
+  .span16.photo.full
+    .container
+      .image= paperclip_image_tag @photo.image, :full
+      .desc= @photo.desc
 
-= semantic_form_for :comment, :url => create_comment_album_photo_path(@photo.album, @photo) do |f|
-  = f.input :comment, :as => :text
-  = f.buttons do
-    = f.commit_button t(".add_comment")
+.row
+  .span16
+    %h3= t(".comments")
+    - unless @photo.comments.any?
+      .no-items= t(".no_comments")
+    - else
+      #comments
+        = render :partial => "comment", :collection => @photo.comments.all(:order => "created_at asc", :include => :user)
+
+    %h3= t(".add_comment")
+    = form_for Comment.new, :url => create_comment_album_photo_path(@photo.album, @photo) do |f|
+      .clearfix
+        = f.label :comment, t(".comment")
+        .input= f.text_area :comment
+      .actions
+        = f.submit t(".add_comment"), :class => "btn"

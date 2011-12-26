@@ -1,8 +1,10 @@
-%h1= t(".header")
+- @page_title = t(".header")
 
-= semantic_form_for @album do |f|
-  = f.input :name
-  = f.buttons
-
-.commands
-  = link_to t("back"), :back
+= form_for @album do |f|
+  .clearfix
+    = f.label :name
+    .input= f.text_field :name
+  .actions
+    = f.submit :class => "primary btn"
+    or
+    = link_to t("back"), :back

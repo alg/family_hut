@@ -1,23 +1,21 @@
-%h1= t(".header")
+- @page_title = t(".header")
 
-#sidebar
-  #albums
-    %h2
-      .commands
-        = link_to t(".new_album"), new_album_path
-      = t(".my_albums")
+.row
+  .span10
+    #photos
+      %h3= t(".new_photos")
+      = render @photos
 
-    - if @albums.empty?
-      .no-items= t(".no_albums")
-    - else
-      = render :partial => "albums/album", :collection => @albums, :locals => { :style => :tiny }
+  .span6
+    #posts
+      %h3= t(".journal")
+      = render :partial => "users/post_form"
+      = render :partial => "users/post", :object => @post
 
-  #news
-    %h2= t(".news")
-    = render :partial => "shared/event", :collection => @events
+    #albums
+      %h3= t(".my_albums")
 
-#posts
-  %h2= t(".journal")
-  = render :partial => "users/post_form"
-  = render :partial => "users/post", :collection => @posts
-  = will_paginate @posts
+      - if @albums.empty?
+        .no-items= t(".no_albums")
+      - else
+        = render :partial => "albums/album", :collection => @albums

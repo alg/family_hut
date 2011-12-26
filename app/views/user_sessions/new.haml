@@ -1,8 +1,16 @@
-%h1 Login
+- @page_title = 'Login'
 
-= semantic_form_for @user_session, :url => user_session_path do |f|
-  = f.input :login
-  = f.input :password, :as => :password
-  = f.input :remember_me, :as => :boolean
-  = f.buttons do
-    = f.commit_button "Log in"
+= form_for @user_session, :url => user_session_path do |f|
+  %fieldset
+    .clearfix
+      = f.label :login
+      .input= f.text_field :login
+    .clearfix
+      = f.label :password
+      .input= f.password_field :password
+    .clearfix
+      .input
+        = f.check_box :remember_me
+        %span Remember me
+  .actions
+    = f.submit "Login", :class => "primary btn"

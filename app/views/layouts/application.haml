@@ -3,12 +3,13 @@
   %head
     %meta{ "http-equiv" => "content-type", "content" => "text/html;charset=UTF-8" }
     %title== #{@title && (@title + " -")} #{t(:family_hut)}
-    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'bootstrap.min', 'application'
     = csrf_meta_tag
   %body
-    #page.wrapper
-      = render :partial => "layouts/header"
-      #content
+    = render :partial => "layouts/header"
+    .container
+      .content
+        = render :partial => "layouts/page_header"
         = yield
       = render :partial => "layouts/footer"
     = javascript_include_tag 'application'

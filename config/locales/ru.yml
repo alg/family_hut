@@ -5,6 +5,9 @@ ru:
   next:                 Следущая &rarr;
   send:                 Отправить
 
+  photo:                Фото
+  new_photos:           Новые фото
+
   date:
     formats:
       default: "%d.%m.%Y"

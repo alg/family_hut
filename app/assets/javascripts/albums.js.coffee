@@ -8,6 +8,7 @@ $ ->
     type: "text",
     name: "title",
     submit: "OK",
+    width: 200,
     submitdata: ->
       pid = $(this).parent().attr("pid")
       return { album_id: album_id, id: pid }

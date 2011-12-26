@@ -1,20 +1,21 @@
 class UsersController < ApplicationController
   before_filter :require_user
-  
+
   def dashboard
     @albums = current_user.albums
     @events = Log.all(:limit => 10, :order => "created_at desc", :include => :user)
-    @posts  = Post.paginate(:page => params[:page], :per_page => params[:per_page] || 10, :order => "created_at desc")
+    @post   = Post.last
+    @photos = Photo.paginate(:page => params[:page], :per_page => 10, :order => "created_at desc")
   end
-  
+
   def index
     @users = User.all(:order => "name asc")
   end
-  
+
   def new
     @user = User.new
   end
-  
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -24,16 +25,16 @@ class UsersController < ApplicationController
       render :action => :new
     end
   end
-  
+
   def show
     @user = params[:id].nil? ? current_user : User.find(params[:id])
     @events = @user.logs.all(:limit => 10, :order => "created_at desc", :include => :user)
   end
- 
+
   def edit
     @user = current_user
   end
-  
+
   def update
     @user = current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
@@ -43,18 +44,18 @@ class UsersController < ApplicationController
       render :action => :edit
     end
   end
-  
+
   def destroy
     current_user.destroy
     flash[:notice] = "Your account has been cancelled"
     redirect_to login_url
   end
-  
+
   def new_post
     current_user.posts.create(params[:post])
     redirect_to dashboard_path
   end
-  
+
   def delete_post
     post = current_user.posts.find(params[:id])
     if post.removable_by?(current_user)
@@ -66,5 +67,5 @@ class UsersController < ApplicationController
   ensure
     redirect_to dashboard_path
   end
-  
+
 end

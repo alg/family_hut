@@ -11,13 +11,12 @@ function show_uploaded_image(placeholder_id, photo_id, title, date, brief_url, p
   var link = $("<a></a>").attr("href", photo_url).append(img);
   var ph = $("#pid_" + placeholder_id);
   ph.find(".title").text(title);
-  ph.find(".date").text(date);
   ph.find(".image").text('').append(link);
   ph.removeClass("placeholder");
 }
 
 function generate_uploading_placeholder(placeholder_id) {
-  var photo = $("<div class='photo placeholder' id='pid_" + placeholder_id + "'><div class='title'>&nbsp;</div><div class='date'>&nbsp;</div><div class='image'><img src='/app_assets/indicator.gif'> Uploading</div></div>");
+  var photo = $("<div class='photo placeholder span5' id='pid_" + placeholder_id + "'><div class='image'><img src='/app_assets/indicator.gif'> Uploading</div><div class='title'>&nbsp;</div></div>");
   photo.insertAfter("#photos .placeholder.upload");
 }
 

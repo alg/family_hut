@@ -1,23 +1,26 @@
-%h1= @user.name
+- @page_title = @user.name
 
 - if current_user == @user
-  .commands 
-    = link_to t(".edit"), edit_account_path
-    
-.user
-  .avatar= image_tag @user.avatar.url(:normal)
-  .details
-    - if @user.location
-      .location== #{t("users.lives_in")}: #{@user.location}
-    .email== #{t("formtastic.labels.user.email")}: #{@user.email}
-    .last_login== #{t("users.last_login")}: #{(@user.last_login_at && time_ago_in_words(@user.last_login_at) + " ago") || "Never"}
+  .row
+    .span16.commands 
+      = link_to t(".edit"), edit_account_path, :class => 'btn'
 
-#news
-  %h2= t(".activity")
+.row
+  .span16
+    .user
+      .avatar= image_tag @user.avatar.url(:normal)
+      .details
+        - if @user.location
+          .location== #{t("users.lives_in")}: #{@user.location}
+        .email== #{t("formtastic.labels.user.email")}: #{@user.email}
+        .last_login== #{t("users.last_login")}: #{(@user.last_login_at && time_ago_in_words(@user.last_login_at) + " ago") || "Never"}
 
-  = render :partial => "shared/event", :collection => @events
+    - if @events.any?
+      #news
+        %h3= t(".activity")
+        = render :partial => "shared/event", :collection => @events
 
-#albums
-  %h2= t(".albums")
-
-  = render :partial => "albums/album", :collection => @user.albums
+    - if @user.albums
+      #albums
+        %h3= t(".albums")
+        = render :partial => "albums/album", :collection => @user.albums

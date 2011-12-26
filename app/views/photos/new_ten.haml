@@ -1,17 +1,10 @@
-%h1= t(".header")
+- @page_title= t(".header")
 
 = form_for :photos, :url => create_ten_album_photos_path(params[:album_id]), :html => { :multipart => true, :id => "ten_photos", :class => "formtastic" } do |f|
-  %table
-    %tr
-      %th= t(".title")
-      %th= t(".file")
-    - 10.times do |i|
-      %tr
-        %td
-          %li.string
-            = f.text_field "photos[#{i}][title]"
-        %td
-          %li.file
-            = f.file_field "photos[#{i}][image]"
+  - 10.times do |i|
+    .clearfix
+      = f.label "photos[#{i}][title]", "#{t('photo')} #{i+1}"
+      .input= f.file_field "photos[#{i}][image]"
 
-  = f.submit t(".upload")
+  .actions
+    = f.submit t(".upload"), :class => "primary btn"

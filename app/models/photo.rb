@@ -20,7 +20,7 @@ class Photo < ActiveRecord::Base
     self.notified = true
     save!
   end
-  
+
   private
 
   def normalize_title
@@ -30,5 +30,5 @@ class Photo < ActiveRecord::Base
   def destroy_original
     File.unlink(self.image.path) if self.image.path && File.exists?(self.image.path)
   end
-  
+
 end

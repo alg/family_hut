@@ -1,14 +1,16 @@
-%h1= @album.name
+- @page_title = @album.name
 
 = hidden_field_tag 'album_id', @album.id
 
-.commands
-  - if owns?(@album)
-    = link_to t(".add_10_photos"),  new_ten_album_photos_path(@album)
-    = link_to t(".edit"),           edit_album_path(@album)
-    = link_to t(".delete"),         @album, :method => :delete, :confirm => t(".delete_confirm")
+.row
+  .span16
+    - if owns?(@album)
+      .commands
+        = link_to t(".add_10_photos"),  new_ten_album_photos_path(@album), :class => "btn"
+        = link_to t(".edit"),           edit_album_path(@album), :class => "btn"
+        = link_to t(".delete"),         @album, :method => :delete, :confirm => t(".delete_confirm"), :class => "danger btn"
 
-#photos
-  - if owns?(@album)
-    = render :partial => "upload_placeholder"
-  = render :partial => "photo", :collection => @album.photos.all
+    #photos
+      - if owns?(@album)
+        = render :partial => "upload_placeholder"
+      = render :partial => "photo", :collection => @album.photos.all

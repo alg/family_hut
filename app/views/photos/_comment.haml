@@ -1,6 +1,7 @@
 .comment
   .avatar= image_tag(comment.user.avatar.url(:small))
   .details
-    .name= comment.user.name
-    .date=l comment.created_at, :format => :long
+    .head
+      %span.name= comment.user.name
+      %small (#{time_ago_in_words(comment.created_at)})
     .body= comment.comment
