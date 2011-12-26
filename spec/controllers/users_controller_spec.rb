@@ -10,7 +10,6 @@ describe UsersController do
     specify { response.should render_template(:dashboard) }
     specify { assigns(:albums).should == user.albums }
     specify { assigns(:events).should be }
-    specify { assigns(:post).should   be }
     specify { assigns(:photos).should be }
   end
 
