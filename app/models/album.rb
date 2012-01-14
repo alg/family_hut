@@ -13,6 +13,8 @@ class Album < ActiveRecord::Base
   # We use this to access photo image, not saving our own images
   has_attached_file :image, Photo::IMAGE_OPTIONS.merge(:default_url => DEFAULT_IMAGE_URL)
 
+  attr_accessible :name
+
   validates_presence_of :name
 
   def image_file_name(*params)

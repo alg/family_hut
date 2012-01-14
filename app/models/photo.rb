@@ -10,6 +10,8 @@ class Photo < ActiveRecord::Base
 
   acts_as_commentable
 
+  attr_accessible :title, :desc, :image
+
   scope :with_image, where("image_file_name IS NOT NULL")
   scope :unnotified, where(:notified => false)
 

@@ -10,9 +10,12 @@ class User < ActiveRecord::Base
                               :url  => "/assets/avatars/:id/:style/:basename.:extension",
                               :path => ":rails_root/public/assets/avatars/:id/:style/:basename.:extension"
 
+
+  attr_accessible :login, :name, :email, :avatar, :location, :time_zone, :locale, :password, :password_confirmation
+
   validates_presence_of   :login
   validates_uniqueness_of :login
-  
+
   validates_presence_of   :email
   validates_uniqueness_of :email
 

@@ -1,7 +1,7 @@
 source :gemcutter
 source "http://gems.github.com"
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.1.3'
 gem 'will_paginate', "~> 3.0.pre2"
 gem 'inherited_resources'
 gem 'authlogic'
@@ -31,5 +31,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'timecop'
+  gem 'guard'
+  gem 'guard-rspec'
 end
 
