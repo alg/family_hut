@@ -26,7 +26,7 @@ gem 'jquery-rails'
 
 group :test do 
   gem 'rspec-rails'
-  gem 'shoulda'
+  gem 'shoulda', :git => 'git://github.com/3den/shoulda.git'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'timecop'
