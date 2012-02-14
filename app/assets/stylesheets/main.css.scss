@@ -8,6 +8,11 @@ body { padding-top: 40px; }
   margin-bottom: 20px;
 }
 
+#dashboard #photos .photo {
+  margin-bottom: 12px;
+  width: 140px;
+}
+
 #posts {
   margin-bottom: 20px;
   .avatar {
@@ -92,6 +97,17 @@ nav .next { text-align: right; }
     width: 64px;
     height: 64px;
     margin-right: 10px;
+  }
+}
+
+.popover {
+  .title {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+  }
+  .content {
+    display: none;
   }
 }
 

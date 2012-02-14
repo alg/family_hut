@@ -3,6 +3,8 @@
 //= require jquery.tools.min
 //= require jquery_ujs
 //= require ajaxupload
+//= require bootstrap-twipsy
+//= require bootstrap-popover
 //= require_self
 //= require_tree .
 
@@ -21,7 +23,8 @@ function generate_uploading_placeholder(placeholder_id) {
 }
 
 $(function() {
-  $("img[rel]").overlay();
+  //$("img[rel]").overlay();
+  $("img[rel='popover']").popover({ placement: 'below' });
 
   var link  = $('#photos .placeholder a');
   if (link.length > 0) {

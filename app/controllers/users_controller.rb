@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @albums = current_user.albums
     @events = Log.all(:limit => 10, :order => "created_at desc", :include => :user)
     @post   = Post.last
-    @photos = Photo.paginate(:page => params[:page], :per_page => 10, :order => "created_at desc")
+    @photos = Photo.paginate(:page => params[:page], :per_page => 4 * 8, :order => "created_at desc")
   end
 
   def index

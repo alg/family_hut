@@ -1,3 +1,2 @@
-.span5.photo
-  .image= link_to image_tag(photo.image.url(:brief), :size => "256x256"), [ photo.album, photo ]
-  .title{ :title => photo.title }= photo.title
+.photo
+  .image= link_to image_tag(photo.image.url(:brief), :size => "128x128", :rel => "popover", :title => photo.title), [ photo.album, photo ]
