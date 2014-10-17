@@ -10,7 +10,8 @@
     #posts
       %h3= t(".journal")
       = render :partial => "users/post_form"
-      = render :partial => "users/post", :object => @post
+      - unless @post.nil?
+        = render :partial => "users/post", :object => @post
 
     #albums
       %h3= t(".my_albums")
